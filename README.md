@@ -1,11 +1,4 @@
-<h1 align="center"><img src="docs/pics/caph.png" alt="Kubernetes Cluster API Provider Hetzner"></h1>
-
-<h4 align="center">
-    <a href="docs/topics/quickstart.md">Guide</a> |
-    <a href="docs/README.md">Docs Index</a> |
-    <a href="docs/developers/development.md">Development Docs</a><br/><br/>
-    <a href="https://cluster-api.sigs.k8s.io/">Cluster API Book</a><br/><br/>
-</h4>
+# Cluster API Provider Hetzner
 
 ---
 
