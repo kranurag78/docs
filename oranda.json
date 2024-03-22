@@ -1,0 +1,13 @@
+{
+  "project": {
+    "name": "CAPH"
+  },
+  "build": {
+    "path_prefix": "docs"
+  },
+  "styles": {
+    "theme": "axodark",
+    "favicon": "https://www.axo.dev/favicon.ico"
+  }
+}
+
