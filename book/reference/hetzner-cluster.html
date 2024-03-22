@@ -1,0 +1,247 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js oranda-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HetznerCluster</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="../oranda-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('orandamdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('oranda-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../topics/preparation.html"><strong aria-hidden="true">2.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="../topics/quickstart.html"><strong aria-hidden="true">3.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../topics/managing-ssh-keys.html"><strong aria-hidden="true">4.</strong> Managing SSH Keys</a></li><li class="chapter-item expanded "><a href="../topics/node-image.html"><strong aria-hidden="true">5.</strong> Node Images</a></li><li class="chapter-item expanded "><a href="../topics/production-environment.html"><strong aria-hidden="true">6.</strong> Production Environment</a></li><li class="chapter-item expanded "><a href="../topics/advanced-caph.html"><strong aria-hidden="true">7.</strong> Advanced CAPH</a></li><li class="chapter-item expanded "><a href="../topics/upgrade.html"><strong aria-hidden="true">8.</strong> Upgrading CAPH</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">9.</strong> General</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-cluster.html" class="active"><strong aria-hidden="true">10.</strong> HetznerCluster</a></li><li class="chapter-item expanded "><a href="../reference/hcloud-machine-template.html"><strong aria-hidden="true">11.</strong> HCloudMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-host.html"><strong aria-hidden="true">12.</strong> HetznerBareMetalHost</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-machine-template.html"><strong aria-hidden="true">13.</strong> HetznerBareMetalMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-remediation-template.html"><strong aria-hidden="true">14.</strong> HetznerBareMetalRemediationTemplate</a></li><li class="chapter-item expanded "><a href="../developers/development.html"><strong aria-hidden="true">15.</strong> Development guide</a></li><li class="chapter-item expanded "><a href="../developers/tilt.html"><strong aria-hidden="true">16.</strong> Tilt</a></li><li class="chapter-item expanded "><a href="../developers/releasing.html"><strong aria-hidden="true">17.</strong> Releasing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Axo Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-light">Axo Light</button></li>
+
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="hetznercluster"><a class="header" href="#hetznercluster">HetznerCluster</a></h2>
+<p>In HetznerCluster you can define everything related to the general components of the cluster as well as those properties, which are valid cluster-wide.</p>
+<p>There are two different modes for the cluster. A pure HCloud cluster and a cluster that uses Hetzner dedicated (bare metal) servers, either as control planes or as workers. The HCloud cluster works with Kubeadm and supports private networks. In a cluster that includes bare metal servers there are no private networks, as this feature has not yet been integrated in cluster-api-provider-hetzner. Apart from SSH, the node image has to support cloud-init, which we use to provision the bare metal machines. In cluster with bare metal servers, you need to use <a href="https://github.com/syself/hetzner-cloud-controller-manager">this CCM</a>, as the official one does not support bare metal.</p>
+<p><a href="/docs/topics/managing-ssh-keys.html">Here</a> you can find more information regarding the handling of SSH keys. Some of them are specified in <code>HetznerCluster</code> to have them cluster-wide, others are machine-scoped.</p>
+<h3 id="usage-without-hcloud-load-balancer"><a class="header" href="#usage-without-hcloud-load-balancer">Usage without HCloud Load Balancer</a></h3>
+<p>It is also possible not to use the cloud load balancer from Hetzner. This is useful for setups with only one control plane, or if you have your own cloud load balancer. Using <code>controlPlaneLoadBalancer.enabled=false</code> prevents the creation of a hcloud load balancer. Then you need to configure <code>controlPlaneEndpoint.port=6443</code> &amp; <code>controlPlaneEndpoint.host</code>, which should be a domain that has A records configured pointing to the control plane IP for example. If you are using your own load balancer, you need to point towards it and configure the load balancer to target the control planes of the cluster. </p>
+<h2 id="overview-of-hetznerclusterspec"><a class="header" href="#overview-of-hetznerclusterspec">Overview of HetznerCluster.Spec</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>hcloudNetwork</td><td>object</td><td></td><td>no</td><td>Specifies details about Hetzner cloud private networks</td></tr>
+<tr><td>hcloudNetwork.enabled</td><td>bool</td><td></td><td>yes</td><td>States whether network should be enabled or disabled</td></tr>
+<tr><td>hcloudNetwork.cidrBlock</td><td>string</td><td>&quot;10.0.0.0/16&quot;</td><td>no</td><td>Defines the CIDR block</td></tr>
+<tr><td>hcloudNetwork.subnetCidrBlock</td><td>string</td><td>&quot;10.0.0.0/24&quot;</td><td>no</td><td>Defines the CIDR block of the subnet. Note that one subnet ist required</td></tr>
+<tr><td>hcloudNetwork.networkZone</td><td>string</td><td>&quot;eu-central&quot;</td><td>no</td><td>Defines the network zone. Must be eu-central, us-east or us-west</td></tr>
+<tr><td>controlPlaneRegions</td><td>[]string</td><td>[]string{fsn1}</td><td>no</td><td>This is the base for the failureDomains of the cluster</td></tr>
+<tr><td>sshKeys</td><td>object</td><td></td><td>no</td><td>Cluster-wide SSH keys that serve as default for machines as well</td></tr>
+<tr><td>sshKeys.hcloud</td><td>[]object</td><td></td><td>no</td><td>SSH keys for hcloud</td></tr>
+<tr><td>sshKeys.hcloud.name</td><td>string</td><td></td><td>yes</td><td>Name of SSH key</td></tr>
+<tr><td>sshKeys.hcloud.fingerprint</td><td>string</td><td></td><td>no</td><td>Fingerprint of SSH key - used by the controller</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef</td><td>object</td><td></td><td>no</td><td>Reference to the secret where the SSH key for the rescue system is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.name</td><td>string</td><td></td><td>yes</td><td>Name of the secret</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key</td><td>object</td><td></td><td>yes</td><td>Details about the keys used in the data of the secret</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.name</td><td>string</td><td></td><td>yes</td><td>Name is the key in the secret's data where the SSH key's name is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.publicKey</td><td>string</td><td></td><td>yes</td><td>PublicKey is the key in the secret's data where the SSH key's public key is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.privateKey</td><td>string</td><td></td><td>yes</td><td>PrivateKey is the key in the secret's data where the SSH key's private key is stored</td></tr>
+<tr><td>controlPlaneEndpoint</td><td>object</td><td></td><td>no</td><td>Set by the controller. It is the endpoint to communicate with the control plane</td></tr>
+<tr><td>controlPlaneEndpoint.host</td><td>string</td><td></td><td>yes</td><td>Defines host</td></tr>
+<tr><td>controlPlaneEndpoint.port</td><td>int32</td><td></td><td>yes</td><td>Defines port</td></tr>
+<tr><td>controlPlaneLoadBalancer</td><td>object</td><td></td><td>yes</td><td>Defines specs of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.enabled</td><td>bool</td><td>true</td><td>no</td><td>Specifies if a load balancer should be created</td></tr>
+<tr><td>controlPlaneLoadBalancer.name</td><td>string</td><td></td><td>no</td><td>Name of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.algorithm</td><td>string</td><td>round_robin</td><td>no</td><td>Type of load balancer algorithm. Either round_robin or least_connections</td></tr>
+<tr><td>controlPlaneLoadBalancer.type</td><td>string</td><td>lb11</td><td>no</td><td>Type of load balancer. One of lb11, lb21, lb31</td></tr>
+<tr><td>controlPlaneLoadBalancer.port</td><td>int</td><td>6443</td><td>no</td><td>Load balancer port. Must be in range 1-65535</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices</td><td>[]object</td><td></td><td>no</td><td>Defines extra services of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.protocol</td><td>string</td><td></td><td>yes</td><td>Defines protocol. Must be one of https, http, or tcp</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.listenPort</td><td>int</td><td></td><td>yes</td><td>Defines listen port. Must be in range 1-65535</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.destinationPort</td><td>int</td><td></td><td>yes</td><td>Defines destination port. Must be in range 1-65535</td></tr>
+<tr><td>hcloudPlacementGroup</td><td>[]object</td><td></td><td>no</td><td>List of placement groups that should be defined in Hetzner API</td></tr>
+<tr><td>hcloudPlacementGroup.name</td><td>string</td><td></td><td>yes</td><td>Name of placement group</td></tr>
+<tr><td>hcloudPlacementGroup.type</td><td>string</td><td>type</td><td>no</td><td>Type of placement group. Hetzner only supports 'spread'</td></tr>
+<tr><td>hetznerSecret</td><td>object</td><td></td><td>yes</td><td>Reference to secret where Hetzner API credentials are stored</td></tr>
+<tr><td>hetznerSecret.name</td><td>string</td><td></td><td>yes</td><td>Name of secret</td></tr>
+<tr><td>hetznerSecret.key</td><td>object</td><td></td><td>yes</td><td>Reference to the keys that are used in the secret, either <code>hcloudToken</code> or <code>hetznerRobotUser</code> and <code>hetznerRobotPassword</code> need to be specified</td></tr>
+<tr><td>hetznerSecret.key.hcloudToken</td><td>string</td><td></td><td>no</td><td>Name of the key where the token for the Hetzner Cloud API is stored</td></tr>
+<tr><td>hetznerSecret.key.hetznerRobotUser</td><td>string</td><td></td><td>no</td><td>Name of the key where the username for the Hetzner Robot API is stored</td></tr>
+<tr><td>hetznerSecret.key.hetznerRobotPassword</td><td>string</td><td></td><td>no</td><td>Name of the key where the password for the Hetzner Robot API is stored</td></tr>
+</tbody></table>
+</div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../reference/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../reference/hcloud-machine-template.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../reference/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../reference/hcloud-machine-template.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

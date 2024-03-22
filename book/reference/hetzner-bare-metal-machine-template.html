@@ -1,0 +1,304 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js oranda-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>HetznerBareMetalMachineTemplate</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="../oranda-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('orandamdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('oranda-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../topics/preparation.html"><strong aria-hidden="true">2.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="../topics/quickstart.html"><strong aria-hidden="true">3.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../topics/managing-ssh-keys.html"><strong aria-hidden="true">4.</strong> Managing SSH Keys</a></li><li class="chapter-item expanded "><a href="../topics/node-image.html"><strong aria-hidden="true">5.</strong> Node Images</a></li><li class="chapter-item expanded "><a href="../topics/production-environment.html"><strong aria-hidden="true">6.</strong> Production Environment</a></li><li class="chapter-item expanded "><a href="../topics/advanced-caph.html"><strong aria-hidden="true">7.</strong> Advanced CAPH</a></li><li class="chapter-item expanded "><a href="../topics/upgrade.html"><strong aria-hidden="true">8.</strong> Upgrading CAPH</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">9.</strong> General</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-cluster.html"><strong aria-hidden="true">10.</strong> HetznerCluster</a></li><li class="chapter-item expanded "><a href="../reference/hcloud-machine-template.html"><strong aria-hidden="true">11.</strong> HCloudMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-host.html"><strong aria-hidden="true">12.</strong> HetznerBareMetalHost</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-machine-template.html" class="active"><strong aria-hidden="true">13.</strong> HetznerBareMetalMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-remediation-template.html"><strong aria-hidden="true">14.</strong> HetznerBareMetalRemediationTemplate</a></li><li class="chapter-item expanded "><a href="../developers/development.html"><strong aria-hidden="true">15.</strong> Development guide</a></li><li class="chapter-item expanded "><a href="../developers/tilt.html"><strong aria-hidden="true">16.</strong> Tilt</a></li><li class="chapter-item expanded "><a href="../developers/releasing.html"><strong aria-hidden="true">17.</strong> Releasing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Axo Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-light">Axo Light</button></li>
+
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="hetznerbaremetalmachinetemplate"><a class="header" href="#hetznerbaremetalmachinetemplate">HetznerBareMetalMachineTemplate</a></h2>
+<p>In <code>HetznerBareMetalMachineTemplate</code> you can define all important properties for the <code>HetznerBareMetalMachines</code>. <code>HetznerBareMetalMachines</code> are reconciled by the <code>HetznerBareMetalMachineController</code>, which DOES NOT create or delete Hetzner dedicated machines. Instead, it uses the inventory of <code>HetznerBareMetalHosts</code>. These hosts correspond to already existing bare metal servers, which get provisioned when selected by a <code>HetznerBareMetalMachine</code>.</p>
+<h3 id="lifecycle-of-a-hetznerbaremetalmachine"><a class="header" href="#lifecycle-of-a-hetznerbaremetalmachine">Lifecycle of a HetznerBareMetalMachine</a></h3>
+<h4 id="creating-a-hetznerbaremetalmachine"><a class="header" href="#creating-a-hetznerbaremetalmachine">Creating a HetznerBareMetalMachine</a></h4>
+<p>Simply put, the specs of a <code>HetznerBareMetalMachine</code> consist of two parts. First, there is information about how the bare metal server is supposed to be provisioned. Second, there are properties where you can specify which host to select. If these selectors correspond to a host that is not consumed yet, then the <code>HetznerBareMetalMachine</code> transfers important information to the host object. This information is used to provision the host according to what you specified in the specs of <code>HetznerBareMetalMachineTemplate</code>. If a host has provisioned successfully, then the <code>HetznerBareMetalMachine</code> is considered to be ready.</p>
+<h4 id="deleting-of-a-hetznerbaremetalmachine"><a class="header" href="#deleting-of-a-hetznerbaremetalmachine">Deleting of a HetznerBareMetalMachine</a></h4>
+<p>When the <code>HetznerBareMetalMachine</code> object gets deleted, it removes the information from the host that the latter used for provisioning. The host then triggers the deprovisioning. As soon as this has been completed, the <code>HetznerBareMetalMachineController</code> removes the owner and consumer reference of the host and deletes the finalizer of the machine, so that it can be finally deleted.</p>
+<h4 id="updating-a-hetznerbaremetalmachine"><a class="header" href="#updating-a-hetznerbaremetalmachine">Updating a HetznerBareMetalMachine</a></h4>
+<p>Updating a <code>HetznerBareMetalMachineTemplate</code> is not possible. Instead, a new template should be created.</p>
+<h2 id="cloud-init-and-installimage"><a class="header" href="#cloud-init-and-installimage">cloud-init and installimage</a></h2>
+<p>Both in <a href="https://docs.hetzner.com/robot/dedicated-server/operating-systems/installimage/">installimage</a> and cloud-init the ports used for SSH can be changed, e.g. with the following code snippet:</p>
+<pre><code>sed -i -e '/^\(#\|\)Port/s/^.*$/Port 2223/' /etc/ssh/sshd_config
+</code></pre>
+<p>As the controller needs to know this to be able to successfully provision the server, these ports can be specified in <code>SSHSpec</code> of <code>HetznerBareMetalMachineTemplate</code>.</p>
+<p>When the port is changed in cloud-init, then we additionally need to use the following command to make sure that the change of ports takes immediate effect:
+<code>systemctl restart sshd</code></p>
+<h2 id="choosing-the-right-host"><a class="header" href="#choosing-the-right-host">Choosing the right host</a></h2>
+<p>Via MatchLabels you can specify a certain label (key and value) that identifies the host. You get more flexibility with MatchExpressions. This allows decisions like &quot;take any host that has the key &quot;mykey&quot; and let this key have either one of the values &quot;val1&quot;, &quot;val2&quot;, and &quot;val3&quot;.</p>
+<h3 id="overview-of-hetznerbaremetalmachinetemplatespec"><a class="header" href="#overview-of-hetznerbaremetalmachinetemplatespec">Overview of HetznerBareMetalMachineTemplate.Spec</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>template.spec.providerID</td><td>string</td><td></td><td>no</td><td>Provider ID set by controller</td></tr>
+<tr><td>template.spec.installImage</td><td>object</td><td></td><td>yes</td><td>Configuration used in autosetup</td></tr>
+<tr><td>template.spec.installImage.image</td><td>object</td><td></td><td>yes</td><td>Defines image for bm machine. See below for details.</td></tr>
+<tr><td>template.spec.installImage.image.url</td><td>string</td><td></td><td>no</td><td>Remote URL of image. Can be tar, tar.gz, tar.bz, tar.bz2, tar.xz, tgz, tbz, txz</td></tr>
+<tr><td>template.spec.installImage.image.name</td><td>string</td><td></td><td>no</td><td>Name of the image</td></tr>
+<tr><td>template.spec.installImage.image.path</td><td>string</td><td></td><td>no</td><td>Local path of a pre-installed image</td></tr>
+<tr><td>template.spec.installImage.postInstallScript</td><td>string</td><td></td><td>no</td><td>PostInstallScript that is used for commands that will be executed after installing image</td></tr>
+<tr><td>template.spec.installImage.swraid</td><td>int</td><td>0</td><td>no</td><td>Enables or disables raid. Set 1 to enable</td></tr>
+<tr><td>template.spec.installImage.swraidLevel</td><td>int</td><td>1</td><td>no</td><td>Defines the software raid levels. Only relevant if raid is enabled. Pick one of 0,1,5,6,10</td></tr>
+<tr><td>template.spec.installImage.partitions</td><td>[]object</td><td></td><td>yes</td><td>Partitions that should be created in installimage</td></tr>
+<tr><td>template.spec.installImage.partitions.mount</td><td>string</td><td></td><td>yes</td><td>Mount defines the mount path of the filesystem</td></tr>
+<tr><td>template.spec.installImage.partitions.fileSystem</td><td>string</td><td></td><td>yes</td><td>Filesystem that should be used. Can be ext2, ext3, ext4, btrfs, reiserfs, xfs, swap, or the name of the LVM volume group, if the partition is a VG</td></tr>
+<tr><td>template.spec.installImage.partitions.size</td><td>string</td><td></td><td>yes</td><td>Size of the partition. Use 'all' to use all remaining space of the drive. M/G/T can be used as unit specifications for MiB, GiB, TiB</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions</td><td>[]object</td><td></td><td>no</td><td>Defines the logical volume definitions that should be created</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.vg</td><td>string</td><td></td><td>yes</td><td>Defines the vg name</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.name</td><td>string</td><td></td><td>yes</td><td>Defines the volume name</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.mount</td><td>string</td><td></td><td>yes</td><td>Defines the mount path</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.fileSystem</td><td>string</td><td></td><td>yes</td><td>Defines the file system</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.size</td><td>string</td><td></td><td>yes</td><td>Defines size with unit M/G/T or MiB/GiB/TiB</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions</td><td>[]object</td><td></td><td>no</td><td>Defines the btrfs sub-volume definitions that should be created</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.volume</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs volume name</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.subvolume</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs sub-volume name</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.mount</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs mount path</td></tr>
+<tr><td>template.spec.hostSelector</td><td>object</td><td></td><td>no</td><td>Options to select hosts with</td></tr>
+<tr><td>template.spec.hostSelector.matchLabels</td><td>map[string][string]</td><td></td><td>no</td><td>Specify labels as key-value pairs that should be there in host object to select it</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions</td><td>[]object</td><td></td><td>no</td><td>Requirements using Kubernetes MatchExpressions</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.key</td><td>string</td><td></td><td>yes</td><td>Key of label that should be matched in host object</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.operator</td><td>string</td><td></td><td>yes</td><td><a href="https://pkg.go.dev/k8s.io/apimachinery@v0.23.4/pkg/selection?utm_source=gopls#Operator">Selection operator</a></td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.values</td><td>[]string</td><td></td><td>yes</td><td>Values whose relation to the label value in the host machine is defined by the selection operator</td></tr>
+<tr><td>template.spec.sshSpec</td><td>object</td><td></td><td>yes</td><td>SSH specs</td></tr>
+<tr><td>template.spec.sshSpec.secretRef</td><td>object</td><td></td><td>yes</td><td>Reference to the secret where SSH key is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.name</td><td>string</td><td></td><td>yes</td><td>Name of the secret</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key</td><td>object</td><td></td><td>yes</td><td>Details about the keys used in the data of the secret</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.name</td><td>string</td><td></td><td>yes</td><td>Name is the key in the secret's data where the SSH key's name is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.publicKey</td><td>string</td><td></td><td>yes</td><td>PublicKey is the key in the secret's data where the SSH key's public key is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.privateKey</td><td>string</td><td></td><td>yes</td><td>PrivateKey is the key in the secret's data where the SSH key's private key is stored</td></tr>
+<tr><td>template.spec.sshSpec.portAfterInstallImage</td><td>int</td><td>22</td><td>no</td><td>PortAfterInstallImage specifies the port that can be used to reach the server via SSH after install image completed successfully</td></tr>
+<tr><td>template.spec.sshSpec.portAfterCloudInit</td><td>int</td><td>22 (install image port)</td><td>no</td><td>PortAfterCloudInit specifies the port that can be used to reach the server via SSH after cloud init completed successfully</td></tr>
+</tbody></table>
+</div>
+<h3 id="installimageimage"><a class="header" href="#installimageimage">installImage.image</a></h3>
+<p>You must specify either name and url, or a local path.</p>
+<p>Example of an image provided by Hetzner via NFS:</p>
+<pre><code>image:
+  path: /root/.oldroot/nfs//images/Ubuntu-2204-jammy-amd64-base.tar.gz
+</code></pre>
+<p>Example of an image provided by you via https. The script installimage of Hetzner parses the name to detect the version. It is
+recommended to follow their naming pattern.</p>
+<pre><code>image:
+  name: Ubuntu-2204-jammy-amd64-custom
+  url: https://user:pwd@example.com/images/Ubuntu-2204-jammy-amd64-custom.tar.gz
+
+</code></pre>
+<p>Example of pulling an image from an oci-registry:</p>
+<pre><code>image:
+  name: Ubuntu-2204-jammy-amd64-custom
+  url: oci://ghcr.io/myorg/images/Ubuntu-2204-jammy-amd64-custom:1.0.0-beta.2
+</code></pre>
+<p>If you need credentials to pull the image, then provide the environment variable <code>OCI_REGISTRY_AUTH_TOKEN</code> to the controller.</p>
+<p>You can provide the variable via a secret of the deployment <code>caph-controller-manager</code>:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # ... 
+spec:
+  # ... 
+  template:
+    spec:
+      containers:
+      - command:
+        - /manager
+        image: ghcr.io/syself/caph:vXXX
+        env:
+          - name: OCI_REGISTRY_AUTH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: my-oci-registry-secret    # The name of the secret
+                key: OCI_REGISTRY_AUTH_TOKEN    # The key in the secret. Format: &quot;user:pwd&quot; or just &quot;token&quot;
+      # ... other container specs
+</code></pre>
+<p>You can push an image to an oci-registry with a tool like <a href="https://oras.land">oras</a>:</p>
+<pre><code>oras push ghcr.io/myorg/images/Ubuntu-2204-jammy-amd64-custom:1.0.0-beta.2 \
+    --artifact-type application/vnd.myorg.machine-image.v1 Ubuntu-2204-jammy-amd64-custom.tar.gz
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../reference/hetzner-bare-metal-host.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../reference/hetzner-bare-metal-remediation-template.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../reference/hetzner-bare-metal-host.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../reference/hetzner-bare-metal-remediation-template.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

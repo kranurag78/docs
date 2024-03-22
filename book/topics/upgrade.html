@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js oranda-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Upgrading CAPH</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="../oranda-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('orandamdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('oranda-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../topics/preparation.html"><strong aria-hidden="true">2.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="../topics/quickstart.html"><strong aria-hidden="true">3.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../topics/managing-ssh-keys.html"><strong aria-hidden="true">4.</strong> Managing SSH Keys</a></li><li class="chapter-item expanded "><a href="../topics/node-image.html"><strong aria-hidden="true">5.</strong> Node Images</a></li><li class="chapter-item expanded "><a href="../topics/production-environment.html"><strong aria-hidden="true">6.</strong> Production Environment</a></li><li class="chapter-item expanded "><a href="../topics/advanced-caph.html"><strong aria-hidden="true">7.</strong> Advanced CAPH</a></li><li class="chapter-item expanded "><a href="../topics/upgrade.html" class="active"><strong aria-hidden="true">8.</strong> Upgrading CAPH</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">9.</strong> General</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-cluster.html"><strong aria-hidden="true">10.</strong> HetznerCluster</a></li><li class="chapter-item expanded "><a href="../reference/hcloud-machine-template.html"><strong aria-hidden="true">11.</strong> HCloudMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-host.html"><strong aria-hidden="true">12.</strong> HetznerBareMetalHost</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-machine-template.html"><strong aria-hidden="true">13.</strong> HetznerBareMetalMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-remediation-template.html"><strong aria-hidden="true">14.</strong> HetznerBareMetalRemediationTemplate</a></li><li class="chapter-item expanded "><a href="../developers/development.html"><strong aria-hidden="true">15.</strong> Development guide</a></li><li class="chapter-item expanded "><a href="../developers/tilt.html"><strong aria-hidden="true">16.</strong> Tilt</a></li><li class="chapter-item expanded "><a href="../developers/releasing.html"><strong aria-hidden="true">17.</strong> Releasing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Axo Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-light">Axo Light</button></li>
+
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="upgrading-the-kubernetes-cluster-api-provider-hetzner"><a class="header" href="#upgrading-the-kubernetes-cluster-api-provider-hetzner">Upgrading the Kubernetes Cluster API Provider Hetzner</a></h1>
+<p>This guide explains how to upgrade Cluster API Provider Hetzner (aka CAPH).</p>
+<h2 id="set-matching-kubeconfig"><a class="header" href="#set-matching-kubeconfig">Set matching kubeconfig</a></h2>
+<p>Connect <code>kubectl</code> to the management cluster.</p>
+<p>We use <code>.envrc</code> files with <a href="https://direnv.net/">direnv</a>,
+but this is optional.</p>
+<pre><code>❯ cd mgm-cluster/
+direnv: loading ~/mgm-cluster/.envrc
+direnv: export +KUBECONFIG +STARSHIP_CONFIG
+</code></pre>
+<p>Check, that you are connected to the correct cluster:</p>
+<pre><code>❯ k config current-context 
+mgm-cluster-admin@mgm-cluster
+</code></pre>
+<p>OK, looks good.</p>
+<h1 id="update-clusterctl"><a class="header" href="#update-clusterctl">Update clusterctl</a></h1>
+<p>Is clusterctl still up to date?</p>
+<pre><code>❯ clusterctl version
+clusterctl version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;3&quot;, GitVersion:&quot;v1.3.2&quot;, GitCommit:&quot;18c6e8e6cda0eaf71d509258186fa8db30a8fa62&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2023-01-10T13:20:59Z&quot;, GoVersion:&quot;go1.19.4&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+</code></pre>
+<p>You can see the current version here:</p>
+<p>https://cluster-api.sigs.k8s.io/user/quick-start.html#install-clusterctl</p>
+<p>If your clusterctl is outdated, then upgrade it. See the above URL for details.</p>
+<h1 id="clusterctl-upgrade-plan"><a class="header" href="#clusterctl-upgrade-plan">clusterctl upgrade plan</a></h1>
+<p>Have a look at what could get upgraded:</p>
+<pre><code>❯ clusterctl upgrade plan
+Checking cert-manager version...
+Cert-Manager will be upgraded from &quot;v1.10.1&quot; to &quot;v1.11.0&quot;
+
+Checking new release availability...
+
+Latest release available for the v1beta1 API Version of Cluster API (contract):
+
+NAME                     NAMESPACE                             TYPE                     CURRENT VERSION   NEXT VERSION
+bootstrap-kubeadm        capi-kubeadm-bootstrap-system         BootstrapProvider        v1.3.2            v1.4.1
+control-plane-kubeadm    capi-kubeadm-control-plane-system     ControlPlaneProvider     v1.3.2            v1.4.1
+cluster-api              capi-system                           CoreProvider             v1.3.2            v1.4.1
+infrastructure-hetzner   cluster-api-provider-hetzner-system   InfrastructureProvider   v1.0.0-beta.14    Already up to date
+
+You can now apply the upgrade by executing the following command:
+
+clusterctl upgrade apply --contract v1beta1
+</code></pre>
+<p>Docs: <a href="https://cluster-api.sigs.k8s.io/clusterctl/commands/upgrade.html">clusterctl upgrade plan</a></p>
+<p>You might be surprised that for <code>infrastructure-hetzner</code>, you see the &quot;Already up to date&quot; message below &quot;NEXT VERSION&quot;.</p>
+<p><code>clusterctl upgrade plan</code> does not display pre-release versions by default.</p>
+<h1 id="upgrade-cluster-api"><a class="header" href="#upgrade-cluster-api">Upgrade cluster-API</a></h1>
+<p>Use the command, which you saw in the plan:</p>
+<pre><code>❯ clusterctl upgrade apply --contract v1beta1
+Checking cert-manager version...
+Deleting cert-manager Version=&quot;v1.10.1&quot;
+Installing cert-manager Version=&quot;v1.11.0&quot;
+Waiting for cert-manager to be available...
+Performing upgrade...
+Scaling down Provider=&quot;cluster-api&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-system&quot;
+Scaling down Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Scaling down Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-control-plane-system&quot;
+Deleting Provider=&quot;cluster-api&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-system&quot;
+Installing Provider=&quot;cluster-api&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-system&quot;
+Deleting Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Installing Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Deleting Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-control-plane-system&quot;
+Installing Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-kubeadm-control-plane-system&quot;
+</code></pre>
+<p>Great, cluster-API was upgraded. </p>
+<h1 id="upgrade-caph"><a class="header" href="#upgrade-caph">Upgrade CAPH</a></h1>
+<p>You can find the latest version of CAPH here:</p>
+<p>https://github.com/syself/cluster-api-provider-hetzner/tags</p>
+<pre><code>❯ clusterctl upgrade apply --infrastructure cluster-api-provider-hetzner-system/hetzner:v1.0.0-beta.16
+Checking cert-manager version...
+Cert-manager is already up to date
+Performing upgrade...
+Scaling down Provider=&quot;infrastructure-hetzner&quot; Version=&quot;&quot; Namespace=&quot;cluster-api-provider-hetzner-system&quot;
+Deleting Provider=&quot;infrastructure-hetzner&quot; Version=&quot;&quot; Namespace=&quot;cluster-api-provider-hetzner-system&quot;
+Installing Provider=&quot;infrastructure-hetzner&quot; Version=&quot;v1.0.0-beta.16&quot; TargetNamespace=&quot;cluster-api-provider-hetzner-system&quot;
+</code></pre>
+<h1 id="check-your-cluster"><a class="header" href="#check-your-cluster">Check your cluster</a></h1>
+<p>Check the health of your cluster with your preferred tools. For example <code>kubectl</code>.</p>
+<pre><code>❯ k get pods -A --sort-by=metadata.creationTimestamp
+NAMESPACE                             NAME                                                             READY   STATUS    RESTARTS        AGE
+kube-system                           coredns-565d847f94-ppj8z                                         1/1     Running   685 (33d ago)   79d
+kube-system                           kube-proxy-6p7lt                                                 1/1     Running   2 (33d ago)     79d
+kube-system                           coredns-565d847f94-nrgsk                                         1/1     Running   686 (33d ago)   79d
+kube-system                           kube-apiserver-host-cluster-control-plane-64j47                  1/1     Running   970 (33d ago)   79d
+kube-system                           kube-scheduler-host-cluster-control-plane-64j47                  1/1     Running   484 (33d ago)   79d
+kube-system                           kube-controller-manager-host-cluster-control-plane-64j47         1/1     Running   493 (33d ago)   79d
+kube-system                           etcd-host-cluster-control-plane-64j47                            1/1     Running   813 (33d ago)   79d
+kube-system                           cilium-operator-6f64975cf7-5489z                                 1/1     Running   524 (33d ago)   79d
+kube-system                           cilium-qk7v7                                                     1/1     Running   644 (33d ago)   79d
+kube-system                           cilium-operator-6f64975cf7-z9m72                                 1/1     Running   538 (33d ago)   79d
+kube-system                           ccm-ccm-hcloud-655cf4fdcc-xjszz                                  1/1     Running   3 (33d ago)     79d
+kube-system                           kube-proxy-hbtnt                                                 1/1     Running   1 (35d ago)     79d
+kube-system                           cilium-gtvfw                                                     1/1     Running   643 (35d ago)   79d
+kube-system                           kube-scheduler-host-cluster-control-plane-t97fn                  1/1     Running   492 (33d ago)   79d
+kube-system                           etcd-host-cluster-control-plane-t97fn                            1/1     Running   491 (33d ago)   79d
+kube-system                           kube-apiserver-host-cluster-control-plane-t97fn                  1/1     Running   560 (33d ago)   79d
+kube-system                           kube-controller-manager-host-cluster-control-plane-t97fn         1/1     Running   492 (33d ago)   79d
+kube-system                           hubble-relay-6676b755f6-l7vcd                                    1/1     Running   0               33d
+kube-system                           hubble-ui-55f87db549-q4bxb                                       2/2     Running   0               33d
+default                               netshoot                                                         1/1     Running   2 (21d ago)     21d
+kube-system                           cilium-l8p7s                                                     1/1     Running   0               20d
+kube-system                           kube-proxy-n7pwh                                                 1/1     Running   0               20d
+kube-system                           kube-scheduler-host-cluster-control-plane-2r25q                  1/1     Running   0               20d
+kube-system                           etcd-host-cluster-control-plane-2r25q                            1/1     Running   0               20d
+kube-system                           kube-apiserver-host-cluster-control-plane-2r25q                  1/1     Running   0               20d
+kube-system                           kube-controller-manager-host-cluster-control-plane-2r25q         1/1     Running   0               20d
+cert-manager                          cert-manager-cainjector-ffb4747bb-bt2l7                          1/1     Running   0               10m
+cert-manager                          cert-manager-99bb69456-ntvz6                                     1/1     Running   0               10m
+cert-manager                          cert-manager-webhook-545bd5d7d8-6cxxk                            1/1     Running   0               10m
+capi-system                           capi-controller-manager-746b4f5db4-zzbv9                         1/1     Running   0               9m17s
+capi-kubeadm-bootstrap-system         capi-kubeadm-bootstrap-controller-manager-8654485994-tpvkf       1/1     Running   0               9m14s
+capi-kubeadm-control-plane-system     capi-kubeadm-control-plane-controller-manager-5d9d9494d5-2mqlc   1/1     Running   0               9m11s
+cluster-api-provider-hetzner-system   caph-controller-manager-566f996fbd-jrqc4                         1/1     Running   0               2m30s
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../topics/advanced-caph.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../reference/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../topics/advanced-caph.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../reference/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js oranda-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Preparation</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+        <link rel="stylesheet" href="../oranda-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('orandamdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('oranda-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../topics/preparation.html" class="active"><strong aria-hidden="true">2.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="../topics/quickstart.html"><strong aria-hidden="true">3.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="../topics/managing-ssh-keys.html"><strong aria-hidden="true">4.</strong> Managing SSH Keys</a></li><li class="chapter-item expanded "><a href="../topics/node-image.html"><strong aria-hidden="true">5.</strong> Node Images</a></li><li class="chapter-item expanded "><a href="../topics/production-environment.html"><strong aria-hidden="true">6.</strong> Production Environment</a></li><li class="chapter-item expanded "><a href="../topics/advanced-caph.html"><strong aria-hidden="true">7.</strong> Advanced CAPH</a></li><li class="chapter-item expanded "><a href="../topics/upgrade.html"><strong aria-hidden="true">8.</strong> Upgrading CAPH</a></li><li class="chapter-item expanded "><a href="../reference/index.html"><strong aria-hidden="true">9.</strong> General</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-cluster.html"><strong aria-hidden="true">10.</strong> HetznerCluster</a></li><li class="chapter-item expanded "><a href="../reference/hcloud-machine-template.html"><strong aria-hidden="true">11.</strong> HCloudMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-host.html"><strong aria-hidden="true">12.</strong> HetznerBareMetalHost</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-machine-template.html"><strong aria-hidden="true">13.</strong> HetznerBareMetalMachineTemplate</a></li><li class="chapter-item expanded "><a href="../reference/hetzner-bare-metal-remediation-template.html"><strong aria-hidden="true">14.</strong> HetznerBareMetalRemediationTemplate</a></li><li class="chapter-item expanded "><a href="../developers/development.html"><strong aria-hidden="true">15.</strong> Development guide</a></li><li class="chapter-item expanded "><a href="../developers/tilt.html"><strong aria-hidden="true">16.</strong> Tilt</a></li><li class="chapter-item expanded "><a href="../developers/releasing.html"><strong aria-hidden="true">17.</strong> Releasing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Axo Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-light">Axo Light</button></li>
+
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="preparation"><a class="header" href="#preparation">Preparation</a></h1>
+<h2 id="preparation-of-the-hetzner-project-and-credentials"><a class="header" href="#preparation-of-the-hetzner-project-and-credentials">Preparation of the Hetzner Project and Credentials</a></h2>
+<p>There are several tasks that have to be completed before a workload cluster can be created.</p>
+<h3 id="preparing-hetzner-cloud"><a class="header" href="#preparing-hetzner-cloud">Preparing Hetzner Cloud</a></h3>
+<ol>
+<li>Create a new <a href="https://console.hetzner.cloud/projects">HCloud project</a>.</li>
+<li>Generate an API token with read and write access. You'll find this if you click on the project and go to &quot;security&quot;.</li>
+<li>If you want to use it, generate an SSH key, upload the public key to HCloud (also via &quot;security&quot;), and give it a name. Read more about <a href="managing-ssh-keys.html">Managing SSH Keys</a>.</li>
+</ol>
+<h3 id="preparing-hetzner-robot"><a class="header" href="#preparing-hetzner-robot">Preparing Hetzner Robot</a></h3>
+<ol>
+<li>Create a new web service user. <a href="https://robot.your-server.de/preferences/index">Here</a>, you can define a password and copy your user name.</li>
+<li>Generate an SSH key. You can either upload it via Hetzner Robot UI or just rely on the controller to upload a key that it does not find in the robot API. This is possible, as you have to store the public and private key together with the SSH key's name in a secret that the controller reads.</li>
+</ol>
+<hr />
+<h2 id="bootstrap-or-management-cluster-installation"><a class="header" href="#bootstrap-or-management-cluster-installation">Bootstrap or Management Cluster Installation</a></h2>
+<h3 id="common-prerequisites"><a class="header" href="#common-prerequisites">Common Prerequisites</a></h3>
+<ul>
+<li>Install and setup kubectl in your local environment</li>
+<li>Install Kind and Docker</li>
+</ul>
+<h3 id="install-and-configure-a-kubernetes-cluster"><a class="header" href="#install-and-configure-a-kubernetes-cluster">Install and configure a Kubernetes cluster</a></h3>
+<p>Cluster API requires an existing Kubernetes cluster accessible via kubectl. During the installation process, the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it is recommended to keep it separated from any application workload.</p>
+<p>It is a common practice to create a temporary, local bootstrap cluster, which is then used to provision a target management cluster on the selected infrastructure provider.</p>
+<h3 id="choose-one-of-the-options-below"><a class="header" href="#choose-one-of-the-options-below">Choose one of the options below:</a></h3>
+<h4 id="1-existing-management-cluster"><a class="header" href="#1-existing-management-cluster">1. Existing Management Cluster.</a></h4>
+<p>For production use, a “real” Kubernetes cluster should be used with appropriate backup and DR policies and procedures in place. The Kubernetes cluster must be at least a <a href="../../README.html#fire-compatibility-with-cluster-api-and-kubernetes-versions">supported version</a>.</p>
+<h4 id="2-kind"><a class="header" href="#2-kind">2. Kind.</a></h4>
+<p><a href="https://kind.sigs.k8s.io/">kind</a> can be used for creating a local Kubernetes cluster for development environments or for the creation of a temporary bootstrap cluster used to provision a target management cluster on the selected infrastructure provider.</p>
+<hr />
+<h2 id="install-clusterctl-and-initialize-management-cluster"><a class="header" href="#install-clusterctl-and-initialize-management-cluster">Install Clusterctl and initialize Management Cluster</a></h2>
+<h3 id="install-clusterctl"><a class="header" href="#install-clusterctl">Install Clusterctl</a></h3>
+<p>Please use the instructions here: https://cluster-api.sigs.k8s.io/user/quick-start.html#install-clusterctl
+or use: <code>make install-clusterctl</code></p>
+<h3 id="initialize-the-management-cluster"><a class="header" href="#initialize-the-management-cluster">Initialize the management cluster</a></h3>
+<p>Now that we’ve got clusterctl installed and all the prerequisites are in place, we can transform the Kubernetes cluster into a management cluster by using the <code>clusterctl init</code> command. More information about clusterctl can be found <a href="https://cluster-api.sigs.k8s.io/clusterctl/commands/commands.html">here</a>.</p>
+<p>For the latest version:</p>
+<pre><code class="language-shell">clusterctl init --core cluster-api --bootstrap kubeadm --control-plane kubeadm --infrastructure hetzner
+
+</code></pre>
+<p>or for a specific version: <code>--infrastructure hetzner:vX.X.X</code></p>
+<hr />
+<h2 id="variable-preparation-to-generate-a-cluster-template"><a class="header" href="#variable-preparation-to-generate-a-cluster-template">Variable Preparation to generate a cluster-template.</a></h2>
+<pre><code class="language-shell">export HCLOUD_SSH_KEY=&quot;&lt;ssh-key-name&gt;&quot; \
+export CLUSTER_NAME=&quot;my-cluster&quot; \
+export HCLOUD_REGION=&quot;fsn1&quot; \
+export CONTROL_PLANE_MACHINE_COUNT=3 \
+export WORKER_MACHINE_COUNT=3 \
+export KUBERNETES_VERSION=1.28.4 \
+export HCLOUD_CONTROL_PLANE_MACHINE_TYPE=cpx31 \
+export HCLOUD_WORKER_MACHINE_TYPE=cpx31
+</code></pre>
+<ul>
+<li>HCLOUD_SSH_KEY: The SSH Key name you loaded in HCloud.</li>
+<li>HCLOUD_REGION: https://docs.hetzner.com/cloud/general/locations/</li>
+<li>HCLOUD_IMAGE_NAME: The Image name of your operating system.</li>
+<li>HCLOUD_X_MACHINE_TYPE: https://www.hetzner.com/cloud#pricing</li>
+</ul>
+<p>For a list of all variables needed for generating a cluster manifest (from the cluster-template.yaml), use <code>clusterctl generate cluster my-cluster --list-variables</code>:</p>
+<pre><code>Required Variables:
+  - HCLOUD_CONTROL_PLANE_MACHINE_TYPE
+  - HCLOUD_REGION
+  - HCLOUD_SSH_KEY
+  - HCLOUD_WORKER_MACHINE_TYPE
+
+Optional Variables:
+  - CLUSTER_NAME                 (defaults to my-cluster)
+  - CONTROL_PLANE_MACHINE_COUNT  (defaults to 1)
+  - WORKER_MACHINE_COUNT         (defaults to 0)
+</code></pre>
+<h3 id="create-a-secret-for-hcloud-only"><a class="header" href="#create-a-secret-for-hcloud-only">Create a secret for hcloud only</a></h3>
+<p>In order for the provider integration hetzner to communicate with the Hetzner API (<a href="https://docs.hetzner.cloud/">HCloud API</a>, we need to create a secret with the access data. The secret must be in the same namespace as the other CRs.</p>
+<p><code>export HCLOUD_TOKEN=&quot;&lt;YOUR-TOKEN&gt;&quot; </code></p>
+<ul>
+<li>HCLOUD_TOKEN: The project where your cluster will be placed. You have to get a token from your HCloud Project.</li>
+</ul>
+<pre><code class="language-shell">kubectl create secret generic hetzner --from-literal=hcloud=$HCLOUD_TOKEN
+
+# Patch the created secret so it is automatically moved to the target cluster later.
+kubectl patch secret hetzner -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+</code></pre>
+<p>The secret name and the tokens can also be customized in the cluster template.</p>
+<h3 id="create-a-secret-for-hetzner-hcloud--robot"><a class="header" href="#create-a-secret-for-hetzner-hcloud--robot">Create a secret for Hetzner (Hcloud + Robot)</a></h3>
+<p>In order for the provider integration hetzner to communicate with the Hetzner API (<a href="https://docs.hetzner.cloud/">HCloud API</a> + <a href="https://robot.your-server.de/doc/webservice/en.html#preface">Robot API</a>), we need to create a secret with the access data. The secret must be in the same namespace as the other CRs.</p>
+<pre><code class="language-shell">export HCLOUD_TOKEN=&quot;&lt;YOUR-TOKEN&gt;&quot; \
+export HETZNER_ROBOT_USER=&quot;&lt;YOUR-ROBOT-USER&gt;&quot; \
+export HETZNER_ROBOT_PASSWORD=&quot;&lt;YOUR-ROBOT-PASSWORD&gt;&quot; \
+export HETZNER_SSH_PUB_PATH=&quot;&lt;YOUR-SSH-PUBLIC-PATH&gt;&quot; \
+export HETZNER_SSH_PRIV_PATH=&quot;&lt;YOUR-SSH-PRIVATE-PATH&gt;&quot;
+</code></pre>
+<ul>
+<li>HCLOUD_TOKEN: The project where your cluster will be placed. You have to get a token from your HCloud Project.</li>
+<li>HETZNER_ROBOT_USER: The User you have defined in Robot under settings/web.</li>
+<li>HETZNER_ROBOT_PASSWORD: The Robot Password you have set in Robot under settings/web.</li>
+<li>HETZNER_SSH_PUB_PATH: The Path to your generated Public SSH Key.</li>
+<li>HETZNER_SSH_PRIV_PATH: The Path to your generated Private SSH Key. This is needed because CAPH uses this key to provision the node in Hetzner Dedicated.</li>
+</ul>
+<pre><code class="language-shell">kubectl create secret generic hetzner --from-literal=hcloud=$HCLOUD_TOKEN --from-literal=robot-user=$HETZNER_ROBOT_USER --from-literal=robot-password=$HETZNER_ROBOT_PASSWORD
+
+kubectl create secret generic robot-ssh --from-literal=sshkey-name=cluster --from-file=ssh-privatekey=$HETZNER_SSH_PRIV_PATH --from-file=ssh-publickey=$HETZNER_SSH_PUB_PATH
+
+# Patch the created secrets so that they get automatically moved to the target cluster later.
+kubectl patch secret hetzner -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+kubectl patch secret robot-ssh -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+</code></pre>
+<p>The secret name and the tokens can also be customized in the cluster template.</p>
+<h3 id="creating-a-viable-node-image"><a class="header" href="#creating-a-viable-node-image">Creating a viable Node Image</a></h3>
+<p>For using cluster-API with the bootstrap provider kubeadm, we need a server with all the necessary binaries and settings for running Kubernetes.
+There are several ways to achieve this. In the quick-start guide, we use <code>pre-kubeadm</code> commands in the KubeadmControlPlane and KubeadmConfigTemplate objects. These are propagated from the bootstrap provider kubeadm and the control plane provider kubeadm to the node as cloud-init commands. This way is usable universally also in other infrastructure providers.
+For Hcloud, there is an alternative way of doing this using Packer. It creates a snapshot to boot from. This makes it easier to version the images, and creating new nodes using this image is faster. The same is possible for Hetzner Bare Metal, as we could use installimage and a prepared tarball, which then gets installed.</p>
+<p>See <a href="./node-image.html">node-image</a> for more information.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter_1.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../topics/quickstart.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter_1.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../topics/quickstart.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

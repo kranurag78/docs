@@ -1,0 +1,1071 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js oranda-dark">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="oranda-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "oranda-dark" : "oranda-dark";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('orandamdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('orandamdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('orandamdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('oranda-dark')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="topics/preparation.html"><strong aria-hidden="true">2.</strong> Preparation</a></li><li class="chapter-item expanded "><a href="topics/quickstart.html"><strong aria-hidden="true">3.</strong> Getting started</a></li><li class="chapter-item expanded "><a href="topics/managing-ssh-keys.html"><strong aria-hidden="true">4.</strong> Managing SSH Keys</a></li><li class="chapter-item expanded "><a href="topics/node-image.html"><strong aria-hidden="true">5.</strong> Node Images</a></li><li class="chapter-item expanded "><a href="topics/production-environment.html"><strong aria-hidden="true">6.</strong> Production Environment</a></li><li class="chapter-item expanded "><a href="topics/advanced-caph.html"><strong aria-hidden="true">7.</strong> Advanced CAPH</a></li><li class="chapter-item expanded "><a href="topics/upgrade.html"><strong aria-hidden="true">8.</strong> Upgrading CAPH</a></li><li class="chapter-item expanded "><a href="reference/index.html"><strong aria-hidden="true">9.</strong> General</a></li><li class="chapter-item expanded "><a href="reference/hetzner-cluster.html"><strong aria-hidden="true">10.</strong> HetznerCluster</a></li><li class="chapter-item expanded "><a href="reference/hcloud-machine-template.html"><strong aria-hidden="true">11.</strong> HCloudMachineTemplate</a></li><li class="chapter-item expanded "><a href="reference/hetzner-bare-metal-host.html"><strong aria-hidden="true">12.</strong> HetznerBareMetalHost</a></li><li class="chapter-item expanded "><a href="reference/hetzner-bare-metal-machine-template.html"><strong aria-hidden="true">13.</strong> HetznerBareMetalMachineTemplate</a></li><li class="chapter-item expanded "><a href="reference/hetzner-bare-metal-remediation-template.html"><strong aria-hidden="true">14.</strong> HetznerBareMetalRemediationTemplate</a></li><li class="chapter-item expanded "><a href="developers/development.html"><strong aria-hidden="true">15.</strong> Development guide</a></li><li class="chapter-item expanded "><a href="developers/tilt.html"><strong aria-hidden="true">16.</strong> Tilt</a></li><li class="chapter-item expanded "><a href="developers/releasing.html"><strong aria-hidden="true">17.</strong> Releasing</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-dark">Axo Dark</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="oranda-light">Axo Light</button></li>
+
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="preparation"><a class="header" href="#preparation">Preparation</a></h1>
+<h2 id="preparation-of-the-hetzner-project-and-credentials"><a class="header" href="#preparation-of-the-hetzner-project-and-credentials">Preparation of the Hetzner Project and Credentials</a></h2>
+<p>There are several tasks that have to be completed before a workload cluster can be created.</p>
+<h3 id="preparing-hetzner-cloud"><a class="header" href="#preparing-hetzner-cloud">Preparing Hetzner Cloud</a></h3>
+<ol>
+<li>Create a new <a href="https://console.hetzner.cloud/projects">HCloud project</a>.</li>
+<li>Generate an API token with read and write access. You'll find this if you click on the project and go to &quot;security&quot;.</li>
+<li>If you want to use it, generate an SSH key, upload the public key to HCloud (also via &quot;security&quot;), and give it a name. Read more about <a href="topics/managing-ssh-keys.html">Managing SSH Keys</a>.</li>
+</ol>
+<h3 id="preparing-hetzner-robot"><a class="header" href="#preparing-hetzner-robot">Preparing Hetzner Robot</a></h3>
+<ol>
+<li>Create a new web service user. <a href="https://robot.your-server.de/preferences/index">Here</a>, you can define a password and copy your user name.</li>
+<li>Generate an SSH key. You can either upload it via Hetzner Robot UI or just rely on the controller to upload a key that it does not find in the robot API. This is possible, as you have to store the public and private key together with the SSH key's name in a secret that the controller reads.</li>
+</ol>
+<hr />
+<h2 id="bootstrap-or-management-cluster-installation"><a class="header" href="#bootstrap-or-management-cluster-installation">Bootstrap or Management Cluster Installation</a></h2>
+<h3 id="common-prerequisites"><a class="header" href="#common-prerequisites">Common Prerequisites</a></h3>
+<ul>
+<li>Install and setup kubectl in your local environment</li>
+<li>Install Kind and Docker</li>
+</ul>
+<h3 id="install-and-configure-a-kubernetes-cluster"><a class="header" href="#install-and-configure-a-kubernetes-cluster">Install and configure a Kubernetes cluster</a></h3>
+<p>Cluster API requires an existing Kubernetes cluster accessible via kubectl. During the installation process, the Kubernetes cluster will be transformed into a management cluster by installing the Cluster API provider components, so it is recommended to keep it separated from any application workload.</p>
+<p>It is a common practice to create a temporary, local bootstrap cluster, which is then used to provision a target management cluster on the selected infrastructure provider.</p>
+<h3 id="choose-one-of-the-options-below"><a class="header" href="#choose-one-of-the-options-below">Choose one of the options below:</a></h3>
+<h4 id="1-existing-management-cluster"><a class="header" href="#1-existing-management-cluster">1. Existing Management Cluster.</a></h4>
+<p>For production use, a “real” Kubernetes cluster should be used with appropriate backup and DR policies and procedures in place. The Kubernetes cluster must be at least a <a href="topics/../../README.html#fire-compatibility-with-cluster-api-and-kubernetes-versions">supported version</a>.</p>
+<h4 id="2-kind"><a class="header" href="#2-kind">2. Kind.</a></h4>
+<p><a href="https://kind.sigs.k8s.io/">kind</a> can be used for creating a local Kubernetes cluster for development environments or for the creation of a temporary bootstrap cluster used to provision a target management cluster on the selected infrastructure provider.</p>
+<hr />
+<h2 id="install-clusterctl-and-initialize-management-cluster"><a class="header" href="#install-clusterctl-and-initialize-management-cluster">Install Clusterctl and initialize Management Cluster</a></h2>
+<h3 id="install-clusterctl"><a class="header" href="#install-clusterctl">Install Clusterctl</a></h3>
+<p>Please use the instructions here: https://cluster-api.sigs.k8s.io/user/quick-start.html#install-clusterctl
+or use: <code>make install-clusterctl</code></p>
+<h3 id="initialize-the-management-cluster"><a class="header" href="#initialize-the-management-cluster">Initialize the management cluster</a></h3>
+<p>Now that we’ve got clusterctl installed and all the prerequisites are in place, we can transform the Kubernetes cluster into a management cluster by using the <code>clusterctl init</code> command. More information about clusterctl can be found <a href="https://cluster-api.sigs.k8s.io/clusterctl/commands/commands.html">here</a>.</p>
+<p>For the latest version:</p>
+<pre><code class="language-shell">clusterctl init --core cluster-api --bootstrap kubeadm --control-plane kubeadm --infrastructure hetzner
+
+</code></pre>
+<p>or for a specific version: <code>--infrastructure hetzner:vX.X.X</code></p>
+<hr />
+<h2 id="variable-preparation-to-generate-a-cluster-template"><a class="header" href="#variable-preparation-to-generate-a-cluster-template">Variable Preparation to generate a cluster-template.</a></h2>
+<pre><code class="language-shell">export HCLOUD_SSH_KEY=&quot;&lt;ssh-key-name&gt;&quot; \
+export CLUSTER_NAME=&quot;my-cluster&quot; \
+export HCLOUD_REGION=&quot;fsn1&quot; \
+export CONTROL_PLANE_MACHINE_COUNT=3 \
+export WORKER_MACHINE_COUNT=3 \
+export KUBERNETES_VERSION=1.28.4 \
+export HCLOUD_CONTROL_PLANE_MACHINE_TYPE=cpx31 \
+export HCLOUD_WORKER_MACHINE_TYPE=cpx31
+</code></pre>
+<ul>
+<li>HCLOUD_SSH_KEY: The SSH Key name you loaded in HCloud.</li>
+<li>HCLOUD_REGION: https://docs.hetzner.com/cloud/general/locations/</li>
+<li>HCLOUD_IMAGE_NAME: The Image name of your operating system.</li>
+<li>HCLOUD_X_MACHINE_TYPE: https://www.hetzner.com/cloud#pricing</li>
+</ul>
+<p>For a list of all variables needed for generating a cluster manifest (from the cluster-template.yaml), use <code>clusterctl generate cluster my-cluster --list-variables</code>:</p>
+<pre><code>Required Variables:
+  - HCLOUD_CONTROL_PLANE_MACHINE_TYPE
+  - HCLOUD_REGION
+  - HCLOUD_SSH_KEY
+  - HCLOUD_WORKER_MACHINE_TYPE
+
+Optional Variables:
+  - CLUSTER_NAME                 (defaults to my-cluster)
+  - CONTROL_PLANE_MACHINE_COUNT  (defaults to 1)
+  - WORKER_MACHINE_COUNT         (defaults to 0)
+</code></pre>
+<h3 id="create-a-secret-for-hcloud-only"><a class="header" href="#create-a-secret-for-hcloud-only">Create a secret for hcloud only</a></h3>
+<p>In order for the provider integration hetzner to communicate with the Hetzner API (<a href="https://docs.hetzner.cloud/">HCloud API</a>, we need to create a secret with the access data. The secret must be in the same namespace as the other CRs.</p>
+<p><code>export HCLOUD_TOKEN=&quot;&lt;YOUR-TOKEN&gt;&quot; </code></p>
+<ul>
+<li>HCLOUD_TOKEN: The project where your cluster will be placed. You have to get a token from your HCloud Project.</li>
+</ul>
+<pre><code class="language-shell">kubectl create secret generic hetzner --from-literal=hcloud=$HCLOUD_TOKEN
+
+# Patch the created secret so it is automatically moved to the target cluster later.
+kubectl patch secret hetzner -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+</code></pre>
+<p>The secret name and the tokens can also be customized in the cluster template.</p>
+<h3 id="create-a-secret-for-hetzner-hcloud--robot"><a class="header" href="#create-a-secret-for-hetzner-hcloud--robot">Create a secret for Hetzner (Hcloud + Robot)</a></h3>
+<p>In order for the provider integration hetzner to communicate with the Hetzner API (<a href="https://docs.hetzner.cloud/">HCloud API</a> + <a href="https://robot.your-server.de/doc/webservice/en.html#preface">Robot API</a>), we need to create a secret with the access data. The secret must be in the same namespace as the other CRs.</p>
+<pre><code class="language-shell">export HCLOUD_TOKEN=&quot;&lt;YOUR-TOKEN&gt;&quot; \
+export HETZNER_ROBOT_USER=&quot;&lt;YOUR-ROBOT-USER&gt;&quot; \
+export HETZNER_ROBOT_PASSWORD=&quot;&lt;YOUR-ROBOT-PASSWORD&gt;&quot; \
+export HETZNER_SSH_PUB_PATH=&quot;&lt;YOUR-SSH-PUBLIC-PATH&gt;&quot; \
+export HETZNER_SSH_PRIV_PATH=&quot;&lt;YOUR-SSH-PRIVATE-PATH&gt;&quot;
+</code></pre>
+<ul>
+<li>HCLOUD_TOKEN: The project where your cluster will be placed. You have to get a token from your HCloud Project.</li>
+<li>HETZNER_ROBOT_USER: The User you have defined in Robot under settings/web.</li>
+<li>HETZNER_ROBOT_PASSWORD: The Robot Password you have set in Robot under settings/web.</li>
+<li>HETZNER_SSH_PUB_PATH: The Path to your generated Public SSH Key.</li>
+<li>HETZNER_SSH_PRIV_PATH: The Path to your generated Private SSH Key. This is needed because CAPH uses this key to provision the node in Hetzner Dedicated.</li>
+</ul>
+<pre><code class="language-shell">kubectl create secret generic hetzner --from-literal=hcloud=$HCLOUD_TOKEN --from-literal=robot-user=$HETZNER_ROBOT_USER --from-literal=robot-password=$HETZNER_ROBOT_PASSWORD
+
+kubectl create secret generic robot-ssh --from-literal=sshkey-name=cluster --from-file=ssh-privatekey=$HETZNER_SSH_PRIV_PATH --from-file=ssh-publickey=$HETZNER_SSH_PUB_PATH
+
+# Patch the created secrets so that they get automatically moved to the target cluster later.
+kubectl patch secret hetzner -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+kubectl patch secret robot-ssh -p '{&quot;metadata&quot;:{&quot;labels&quot;:{&quot;clusterctl.cluster.x-k8s.io/move&quot;:&quot;&quot;}}}'
+</code></pre>
+<p>The secret name and the tokens can also be customized in the cluster template.</p>
+<h3 id="creating-a-viable-node-image"><a class="header" href="#creating-a-viable-node-image">Creating a viable Node Image</a></h3>
+<p>For using cluster-API with the bootstrap provider kubeadm, we need a server with all the necessary binaries and settings for running Kubernetes.
+There are several ways to achieve this. In the quick-start guide, we use <code>pre-kubeadm</code> commands in the KubeadmControlPlane and KubeadmConfigTemplate objects. These are propagated from the bootstrap provider kubeadm and the control plane provider kubeadm to the node as cloud-init commands. This way is usable universally also in other infrastructure providers.
+For Hcloud, there is an alternative way of doing this using Packer. It creates a snapshot to boot from. This makes it easier to version the images, and creating new nodes using this image is faster. The same is possible for Hetzner Bare Metal, as we could use installimage and a prepared tarball, which then gets installed.</p>
+<p>See <a href="topics/./node-image.html">node-image</a> for more information.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart-guide"><a class="header" href="#quickstart-guide">Quickstart Guide</a></h1>
+<p>This guide goes through all the necessary steps to create a cluster on Hetzner infrastructure (on HCloud &amp; Hetzner Dedicated).</p>
+<h2 id="preparing-hetzner"><a class="header" href="#preparing-hetzner">Preparing Hetzner</a></h2>
+<p>You have two options: either create a pure HCloud cluster or a hybrid cluster with Hetzner dedicated (bare metal) servers. For a full list of flavors, please check out the <a href="https://github.com/syself/cluster-api-provider-hetzner/releases">release page</a>.</p>
+<p>To create a workload cluster, we need to do some preparation:</p>
+<ul>
+<li>Set up the projects and credentials in HCloud.</li>
+<li>Create the management/bootstrap cluster.</li>
+<li>Export variables needed for cluster-template.</li>
+<li>Create a secret with the credentials.</li>
+</ul>
+<p>For more information about this step, please see <a href="topics/./preparation.html">here</a></p>
+<h2 id="generate-your-clusteryaml"><a class="header" href="#generate-your-clusteryaml">Generate your cluster.yaml</a></h2>
+<blockquote>
+<p>Please note that ready-to-use Kubernetes configurations, production-ready node images, kubeadm configuration, cluster add-ons like CNI, and similar services need to be separately prepared or acquired to ensure a comprehensive and secure Kubernetes deployment. This is where <strong>Syself Autopilot</strong> comes into play, taking on these challenges to offer you a seamless, worry-free Kubernetes experience. Feel free to contact us via e-mail: info@syself.com.</p>
+</blockquote>
+<p>The clusterctl generate cluster command returns a YAML template for creating a workload cluster.
+It generates a YAML file named <code>my-cluster.yaml</code> with a predefined list of Cluster API objects (<code>Cluster</code>, <code>Machines</code>, <code>MachineDeployments</code>, etc.) to be deployed in the current namespace. </p>
+<pre><code class="language-shell">clusterctl generate cluster my-cluster --kubernetes-version v1.28.4 --control-plane-machine-count=3 --worker-machine-count=3  &gt; my-cluster.yaml
+</code></pre>
+<blockquote>
+<p>Note: With the <code>--target-namespace</code> flag, you can specify a different target namespace.
+Run the <code>clusterctl generate cluster --help</code> command for more information.</p>
+</blockquote>
+<p>You can also use different flavors, e.g., to create a cluster with the private network:</p>
+<pre><code class="language-shell">clusterctl generate cluster my-cluster --kubernetes-version v1.28.4 --control-plane-machine-count=3 --worker-machine-count=3  --flavor hcloud-network &gt; my-cluster.yaml
+</code></pre>
+<p>All pre-configured flavors can be found on the <a href="https://github.com/syself/cluster-api-provider-hetzner/releases">release page</a>. The cluster-templates start with <code>cluster-template-</code>. The flavor name is the suffix.</p>
+<h2 id="hetzner-dedicated--bare-metal-server"><a class="header" href="#hetzner-dedicated--bare-metal-server">Hetzner Dedicated / Bare Metal Server</a></h2>
+<p>If you want to create a cluster with bare metal servers, you will also need to set up the robot credentials in the preparation step. As described in the <a href="topics//docs/reference/hetzner-bare-metal-machine-template.html">reference</a>, you need to buy bare metal servers beforehand manually. To use bare metal servers for your deployment, you should choose one of the following flavors:</p>
+<div class="table-wrapper"><table><thead><tr><th>Flavor</th><th>What it does</th></tr></thead><tbody>
+<tr><td>hetzner-baremetal-control-planes-remediation</td><td>Uses bare metal servers for the control plane nodes - with custom remediation (try to reboot machines first)</td></tr>
+<tr><td>hetzner-baremetal-control-planes</td><td>Uses bare metal servers for the control plane nodes - with normal remediation (unprovision/recreate machines)</td></tr>
+<tr><td>hetzner-hcloud-control-planes</td><td>Uses the hcloud servers for the control plane nodes and the bare metal servers for the worker nodes</td></tr>
+</tbody></table>
+</div>
+<p>Next, you need to create a <code>HetznerBareMetalHost</code> object for each bare metal server that you bought and specify its server ID in the specs. Refer to an example <a href="topics//docs/reference/hetzner-bare-metal-host.html">here</a>. Add the created objects to your <code>my-cluster.yaml</code> file. If you already know the WWN of the storage device you want to choose for booting, specify it in the <code>rootDeviceHints</code> of the object. If not, you can apply the workload cluster, start the provisioning without specifying the WWN, and then wait for the bare metal hosts to show an error.</p>
+<p>After that, look at the status of <code>HetznerBareMetalHost</code> by running <code>kubectl describe hetznerbaremetalhost</code> in your management cluster. There you will find <code>hardwareDetails</code> of all of your bare metal hosts, in which you can see a list of all the relevant storage devices as well as their properties. You can copy+paste the WWN:s of your desired storage device into the <code>rootDeviceHints</code> of your <code>HetznerBareMetalHost</code> objects.</p>
+<h2 id="apply-the-workload-cluster"><a class="header" href="#apply-the-workload-cluster">Apply the workload cluster</a></h2>
+<pre><code class="language-shell">kubectl apply -f my-cluster.yaml
+</code></pre>
+<h3 id="accessing-the-workload-cluster"><a class="header" href="#accessing-the-workload-cluster">Accessing the workload cluster</a></h3>
+<p>The cluster will now start provisioning. You can check status with:</p>
+<pre><code class="language-shell">kubectl get cluster
+</code></pre>
+<p>You can also view the cluster and its resources at a glance by running:</p>
+<pre><code class="language-shell">clusterctl describe cluster my-cluster
+</code></pre>
+<p>To verify the first control plane is up, use this command:</p>
+<pre><code class="language-shell">kubectl get kubeadmcontrolplane
+</code></pre>
+<blockquote>
+<p>The control plane won’t be <code>ready</code> until we install a CNI in the next step.</p>
+</blockquote>
+<p>After the first control plane node is up and running, we can retrieve the kubeconfig of the workload cluster:</p>
+<pre><code class="language-shell">export CAPH_WORKER_CLUSTER_KUBECONFIG=/tmp/workload-kubeconfig
+clusterctl get kubeconfig my-cluster &gt; $CAPH_WORKER_CLUSTER_KUBECONFIG
+</code></pre>
+<h2 id="deploy-a-cni-solution"><a class="header" href="#deploy-a-cni-solution">Deploy a CNI solution</a></h2>
+<pre><code class="language-shell">helm repo add cilium https://helm.cilium.io/
+
+KUBECONFIG=$CAPH_WORKER_CLUSTER_KUBECONFIG helm upgrade --install cilium cilium/cilium --version 1.14.4 \
+--namespace kube-system \
+-f templates/cilium/cilium.yaml
+</code></pre>
+<p>You can, of course, also install an alternative CNI, e.g., calico.</p>
+<blockquote>
+<p>There is a bug in Ubuntu that requires the older version of Cilium for this quickstart guide.</p>
+</blockquote>
+<h2 id="deploy-the-ccm"><a class="header" href="#deploy-the-ccm">Deploy the CCM</a></h2>
+<h3 id="deploy-hcloud-cloud-controller-manager---hcloud-only"><a class="header" href="#deploy-hcloud-cloud-controller-manager---hcloud-only">Deploy HCloud Cloud Controller Manager - <em>hcloud only</em></a></h3>
+<p>This <code>make</code> command will install the CCM in your workload cluster.</p>
+<p><code>make install-ccm-in-wl-cluster PRIVATE_NETWORK=false</code></p>
+<pre><code class="language-shell"># For a cluster without a private network:
+helm repo add syself https://charts.syself.com
+helm repo update syself
+
+KUBECONFIG=$CAPH_WORKER_CLUSTER_KUBECONFIG helm upgrade --install ccm syself/ccm-hcloud --version 1.0.11 \
+	--namespace kube-system \
+	--set secret.name=hetzner \
+	--set secret.tokenKeyName=hcloud \
+	--set privateNetwork.enabled=false
+</code></pre>
+<h3 id="deploy-hetzner-cloud-controller-manager"><a class="header" href="#deploy-hetzner-cloud-controller-manager">Deploy Hetzner Cloud Controller Manager</a></h3>
+<blockquote>
+<p>This requires a secret containing access credentials to both Hetzner Robot and HCloud</p>
+</blockquote>
+<p><code>make install-manifests-ccm-hetzner PRIVATE_NETWORK=false</code></p>
+<pre><code class="language-shell">helm repo add syself https://charts.syself.com
+helm repo update syself
+
+KUBECONFIG=$CAPH_WORKER_CLUSTER_KUBECONFIG helm upgrade --install ccm syself/ccm-hetzner --version 1.1.10 \
+--namespace kube-system \
+--set privateNetwork.enabled=false
+</code></pre>
+<h2 id="deploy-the-csi-optional"><a class="header" href="#deploy-the-csi-optional">Deploy the CSI (optional)</a></h2>
+<pre><code class="language-shell">cat &lt;&lt; EOF &gt; csi-values.yaml
+storageClasses:
+- name: hcloud-volumes
+  defaultStorageClass: true
+  reclaimPolicy: Retain
+EOF
+
+KUBECONFIG=$CAPH_WORKER_CLUSTER_KUBECONFIG helm upgrade --install csi syself/csi-hcloud --version 0.2.0 \
+--namespace kube-system -f csi-values.yaml
+</code></pre>
+<h2 id="clean-up"><a class="header" href="#clean-up">Clean Up</a></h2>
+<p>Delete workload cluster.</p>
+<pre><code class="language-shell">kubectl delete cluster my-cluster
+</code></pre>
+<blockquote>
+<p><strong>IMPORTANT</strong>: In order to ensure a proper clean-up of your infrastructure, you must always delete the cluster object. Deleting the entire cluster template with kubectl delete -f capi-quickstart.yaml might lead to pending resources that have to be cleaned up manually.</p>
+</blockquote>
+<p>Delete management cluster with</p>
+<pre><code class="language-shell">kind delete cluster
+</code></pre>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<h3 id="switch-to-the-workload-cluster"><a class="header" href="#switch-to-the-workload-cluster">Switch to the workload cluster</a></h3>
+<pre><code class="language-shell">export KUBECONFIG=/tmp/workload-kubeconfig
+</code></pre>
+<h3 id="moving-components"><a class="header" href="#moving-components">Moving components</a></h3>
+<p>To move the Cluster API objects from your bootstrap cluster to the new management cluster, you need first to install the Cluster API controllers. To install the components with the latest version, please run:</p>
+<pre><code class="language-shell">clusterctl init --core cluster-api --bootstrap kubeadm --control-plane kubeadm --infrastructure hetzner
+
+</code></pre>
+<p>If you want a specific version, use the flag <code>--infrastructure hetzner:vX.X.X</code>.</p>
+<p>Now you can switch back to the management cluster, for example, with</p>
+<pre><code class="language-shell">export KUBECONFIG=~/.kube/config
+</code></pre>
+<p>You can now move the objects into the new cluster by using:</p>
+<pre><code class="language-shell">clusterctl move --to-kubeconfig $CAPH_WORKER_CLUSTER_KUBECONFIG
+</code></pre>
+<p>Clusterctl Flags:</p>
+<div class="table-wrapper"><table><thead><tr><th>Flag</th><th>Description</th></tr></thead><tbody>
+<tr><td><em>--namespace</em></td><td>The namespace where the workload cluster is hosted. If unspecified, the current context's namespace is used.</td></tr>
+<tr><td><em>--kubeconfig</em></td><td>Path to the kubeconfig file for the source management cluster. If unspecified, default discovery rules apply.</td></tr>
+<tr><td><em>--kubeconfig-context</em></td><td>Context to be used within the kubeconfig file for the source management cluster. If empty, the current context will be used.</td></tr>
+<tr><td><em>--to-kubeconfig</em></td><td>Path to the kubeconfig file to use for the destination management cluster.</td></tr>
+<tr><td><em>--to-kubeconfig-context</em></td><td>Context to be used within the kubeconfig file for the destination management cluster. If empty, the current context will be used.</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="managing-ssh-keys"><a class="header" href="#managing-ssh-keys">Managing SSH keys</a></h2>
+<h3 id="in-hetzner-cloud"><a class="header" href="#in-hetzner-cloud">In Hetzner Cloud</a></h3>
+<p>In pure HCloud clusters, without bare metal servers, there is no need for SSH keys. All keys that exist in HCloud API and are specified in <code>HetznerCluster</code> properties are included when provisioning machines. Therefore, they can be used to access those machines via SSH. Note that you have to upload those keys via Hetzner UI or API beforehand. </p>
+<p>The SSH keys can be either specified cluster-wide in the specs of the <code>HetznerCluster</code> object or scoped to one machine in the specs of <code>HCloudMachine</code>.</p>
+<p>If one SSH key is changed in the specs of the cluster, then keep in mind that the SSH key is still valid to access all servers that have been created with it. If it is a potential security vulnerability, then all of these servers should be removed and re-created with the new SSH keys.</p>
+<h3 id="in-hetzner-robot"><a class="header" href="#in-hetzner-robot">In Hetzner Robot</a></h3>
+<p>For bare metal servers, two SSH keys are required. One of them is used for the rescue system, and the other for the actual system. The two can, under the hood, of course, be the same. These SSH keys do not have to be uploaded into Robot API but have to be stored in two secrets (again, the same secret is also possible if the same reference is given twice). Not only the name of the SSH key but also the public and private key. The private key is necessary for provisioning the server with SSH. The SSH key for the actual system is specified in <code>HetznerBareMetalMachineTemplate</code> - there are no cluster-wide alternatives. The SSH key for the rescue system is defined in a cluster-wide manner in the specs of <code>HetznerCluster</code>.</p>
+<p>The secret reference to an SSH key cannot be changed - the secret data, i.e., the SSH key, can. The host that is consumed by the <code>HetznerBareMetalMachine</code> object reacts in different ways to the change of the secret data of the secret referenced in its specs, depending on its provisioning state. If the host is already provisioned, it will emit an event warning that provisioned hosts can't change SSH keys. The corresponding machine object should instead be deleted and recreated. When the host is provisioning, it restarts this process again if a change of the SSH key makes it necessary. This depends on whether it is the SSH key for the rescue or the actual system and the exact provisioning state.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="node-images"><a class="header" href="#node-images">Node Images</a></h1>
+<p>To use CAPH in production, it needs a node image. In Hetzner Cloud, it is not possible to upload your own images directly. However, a server can be created, configured, and then snapshotted. 
+For this, Packer could be used, which already has support for Hetzner Cloud.
+In this repository, there is also an example <code>Packer node-image</code>. To use it, do the following:</p>
+<pre><code class="language-shell">export HCLOUD_TOKEN=&lt;your-token&gt;
+
+## Only build
+packer build templates/node-image/1.28.4-ubuntu-22-04-containerd/image.json
+
+## Debug and ability to ssh into the created server
+packer build --debug --on-error=abort templates/node-image/1.28.4-ubuntu-22-04-containerd/image.json
+</code></pre>
+<p>The first command is necessary so that Packer is able to create a server in hcloud.
+The second one creates the server with Packer. If you are developing your own packer image, the third command could be helpful to check what's going wrong. </p>
+<p>It is essential to know that if you create your own packer image, you need to set a label so that CAPH can find the specified image name. We use for this label the following key: <code>caph-image-name</code>
+Please have a look at the image.json of the <a href="topics//templates/node-image/1.28.4-ubuntu-22-04-containerd/image.json">example node-image</a>.</p>
+<p>If you use your own node image, make sure also to use a cluster flavor that has <code>packer</code> in its name. The default one uses preKubeadm commands to install all necessary things. This is very helpful for testing but is not recommended in a production system.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="production-environment-best-practices"><a class="header" href="#production-environment-best-practices">Production Environment Best Practices</a></h1>
+<h2 id="ha-cluster-api-components"><a class="header" href="#ha-cluster-api-components">HA Cluster API Components</a></h2>
+<p>The clusterctl CLI will create all four needed components, such as Cluster API (CAPI), cluster-api-bootstrap-provider-kubeadm (CAPBK), cluster-api-control-plane-kubeadm (KCP), and cluster-api-provider-hetzner (CAPH).
+It uses the respective *-components.yaml from the releases. However, these are not highly available. By scaling the components, we can at least reduce the probability of failure. If this is not enough, add anti-affinity rules and PDBs.</p>
+<p>Scale up the deployments</p>
+<pre><code class="language-shell">kubectl -n capi-system scale deployment capi-controller-manager --replicas=2
+
+kubectl -n capi-kubeadm-bootstrap-system scale deployment capi-kubeadm-bootstrap-controller-manager --replicas=2
+
+kubectl -n capi-kubeadm-control-plane-system scale deployment capi-kubeadm-control-plane-controller-manager --replicas=2
+
+kubectl -n caph-system scale deployment caph-controller-manager --replicas=2
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="advanced-caph"><a class="header" href="#advanced-caph">Advanced CAPH</a></h1>
+<h2 id="csr-controller"><a class="header" href="#csr-controller">CSR Controller</a></h2>
+<p>For the secure operation of Kubernetes, it is necessary to sign the kubelet serving certificates. By default, these are self-signed by kubeadm. By using the kubelet flag <code>rotate-server-certificates: &quot;true&quot;</code>, which can be found in initConfiguration/joinConfiguration.nodeRegistration.kubeletExtraArgs, the kubelet will do a certificate signing request (CSR) to the certificates API of Kubernetes. </p>
+<p>These CSRs are not approved by default for security reasons. As described in the docs, this should be done manually by the cloud provider or with a custom approval controller. Since the provider integration is the responsible cloud provider in a way, it makes sense to implement such a controller directly here. The CSR controller that we implemented checks the DNS name and the IP address and thus ensures that only those nodes receive the signed certificate that are supposed to.</p>
+<p>For error-free operation, the following kubelet flags should not be set: </p>
+<pre><code>tls-cert-file: &quot;/var/lib/kubelet/pki/kubelet-client-current.pem&quot;
+tls-private-key-file: &quot;/var/lib/kubelet/pki/kubelet-client-current.pem&quot; 
+</code></pre>
+<p>For more information, see: </p>
+<ul>
+<li>https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/</li>
+<li>https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/#client-and-serving-certificates</li>
+</ul>
+<h2 id="rate-limits"><a class="header" href="#rate-limits">Rate Limits</a></h2>
+<p>Hetzner Cloud and Hetzner Robot both implement rate limits. As a brute-force method, we implemented some logic that prevents the controller from reconciling a specific object for some defined time period if a rate limit was hit during reconcilement of that object. We set the condition on true, that a rate limit was hit. Of course, this only affects one object so that another <code>HCloudMachine</code> still reconciles normally, even though one hits the rate limit. There is a chance that it will also hit the rate limit (which is defined per function so that it does not necessarily need to happen). In that case, the controller also stops reconciling this object for some time.</p>
+<h2 id="multi-tenancy"><a class="header" href="#multi-tenancy">Multi-tenancy</a></h2>
+<p>We support multi-tenancy. You can start multiple clusters in one Hetzner project at the same time. As the resources all have a label with the cluster name, the controller is able to handle them perfectly.</p>
+<h2 id="machine-health-checks-with-custom-remediation-template"><a class="header" href="#machine-health-checks-with-custom-remediation-template">Machine Health Checks with Custom Remediation Template</a></h2>
+<p>Cluster API allows to <a href="https://cluster-api.sigs.k8s.io/tasks/automated-machine-management/healthchecking.html">configure Machine Health Checks</a> with custom remediation strategies. This is helpful for our bare metal servers. If the health checks give an outcome that one server cannot be reached, the default strategy would be to delete it. In that case, it would need to be provisioned again. This takes, of course, longer for bare metal servers than for virtual cloud servers. Therefore, we want to try to avoid this with the help of our <code>HetznerBareMetalRemediationController</code> and <code>HCloudRemediationController</code>. Instead of deleting the object and deprovisioning it, we first try to reboot it and see whether this helps. If it solves the problem, we save a lot of time that is required for re-provisioning it.</p>
+<p>If the MHC is configured to be used with the <code>HetznerBareMetalRemediationTemplate</code> (also see the <a href="topics//docs/reference/hetzner-bare-metal-remediation-template.html">reference of the object</a>) and <code>HCloudRemediationTemplate</code> (also see the <a href="topics//docs/reference/hcloud-remediation-template.html">reference of the object</a>), then such an object is created every time the MHC finds an unhealthy machine. </p>
+<p>The <code>HetznerBareMetalRemediationController</code> reconciles this object and then sets an annotation in the relevant <code>HetznerBareMetalHost</code> object specifying the desired remediation strategy. At the moment, only &quot;reboot&quot; is supported.
+The <code>HCloudRemediationController</code> reboots the HCloudMachine directly via the HCloud API. For HCloud servers, there is no other strategy than &quot;reboot&quot; either.</p>
+<p>Here is an example of how to configure the Machine Health Check and <code>HetznerBareMetalRemediationTemplate</code>:</p>
+<pre><code class="language-yaml">apiVersion: cluster.x-k8s.io/v1beta1
+kind: MachineHealthCheck
+metadata:
+  name: &quot;cluster123-control-plane-unhealthy-5m&quot;
+spec:
+  clusterName: &quot;cluster123&quot;
+  maxUnhealthy: 100%
+  nodeStartupTimeout: 20m
+  selector:
+    matchLabels:
+      cluster.x-k8s.io/control-plane: &quot;&quot;
+  unhealthyConditions:
+    - type: Ready
+      status: Unknown
+      timeout: 300s
+    - type: Ready
+      status: &quot;False&quot;
+      timeout: 300s
+  remediationTemplate: # added infrastructure reference
+    kind: HetznerBareMetalRemediationTemplate
+    apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+    name: control-plane-remediation-request
+---
+apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: HetznerBareMetalRemediationTemplate
+metadata:
+  name: control-plane-remediation-request
+spec:
+  template:
+    spec:
+      strategy:
+        type: &quot;Reboot&quot;
+        retryLimit: 2
+        timeout: 300s
+
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="upgrading-the-kubernetes-cluster-api-provider-hetzner"><a class="header" href="#upgrading-the-kubernetes-cluster-api-provider-hetzner">Upgrading the Kubernetes Cluster API Provider Hetzner</a></h1>
+<p>This guide explains how to upgrade Cluster API Provider Hetzner (aka CAPH).</p>
+<h2 id="set-matching-kubeconfig"><a class="header" href="#set-matching-kubeconfig">Set matching kubeconfig</a></h2>
+<p>Connect <code>kubectl</code> to the management cluster.</p>
+<p>We use <code>.envrc</code> files with <a href="https://direnv.net/">direnv</a>,
+but this is optional.</p>
+<pre><code>❯ cd mgm-cluster/
+direnv: loading ~/mgm-cluster/.envrc
+direnv: export +KUBECONFIG +STARSHIP_CONFIG
+</code></pre>
+<p>Check, that you are connected to the correct cluster:</p>
+<pre><code>❯ k config current-context 
+mgm-cluster-admin@mgm-cluster
+</code></pre>
+<p>OK, looks good.</p>
+<h1 id="update-clusterctl"><a class="header" href="#update-clusterctl">Update clusterctl</a></h1>
+<p>Is clusterctl still up to date?</p>
+<pre><code>❯ clusterctl version
+clusterctl version: &amp;version.Info{Major:&quot;1&quot;, Minor:&quot;3&quot;, GitVersion:&quot;v1.3.2&quot;, GitCommit:&quot;18c6e8e6cda0eaf71d509258186fa8db30a8fa62&quot;, GitTreeState:&quot;clean&quot;, BuildDate:&quot;2023-01-10T13:20:59Z&quot;, GoVersion:&quot;go1.19.4&quot;, Compiler:&quot;gc&quot;, Platform:&quot;linux/amd64&quot;}
+</code></pre>
+<p>You can see the current version here:</p>
+<p>https://cluster-api.sigs.k8s.io/user/quick-start.html#install-clusterctl</p>
+<p>If your clusterctl is outdated, then upgrade it. See the above URL for details.</p>
+<h1 id="clusterctl-upgrade-plan"><a class="header" href="#clusterctl-upgrade-plan">clusterctl upgrade plan</a></h1>
+<p>Have a look at what could get upgraded:</p>
+<pre><code>❯ clusterctl upgrade plan
+Checking cert-manager version...
+Cert-Manager will be upgraded from &quot;v1.10.1&quot; to &quot;v1.11.0&quot;
+
+Checking new release availability...
+
+Latest release available for the v1beta1 API Version of Cluster API (contract):
+
+NAME                     NAMESPACE                             TYPE                     CURRENT VERSION   NEXT VERSION
+bootstrap-kubeadm        capi-kubeadm-bootstrap-system         BootstrapProvider        v1.3.2            v1.4.1
+control-plane-kubeadm    capi-kubeadm-control-plane-system     ControlPlaneProvider     v1.3.2            v1.4.1
+cluster-api              capi-system                           CoreProvider             v1.3.2            v1.4.1
+infrastructure-hetzner   cluster-api-provider-hetzner-system   InfrastructureProvider   v1.0.0-beta.14    Already up to date
+
+You can now apply the upgrade by executing the following command:
+
+clusterctl upgrade apply --contract v1beta1
+</code></pre>
+<p>Docs: <a href="https://cluster-api.sigs.k8s.io/clusterctl/commands/upgrade.html">clusterctl upgrade plan</a></p>
+<p>You might be surprised that for <code>infrastructure-hetzner</code>, you see the &quot;Already up to date&quot; message below &quot;NEXT VERSION&quot;.</p>
+<p><code>clusterctl upgrade plan</code> does not display pre-release versions by default.</p>
+<h1 id="upgrade-cluster-api"><a class="header" href="#upgrade-cluster-api">Upgrade cluster-API</a></h1>
+<p>Use the command, which you saw in the plan:</p>
+<pre><code>❯ clusterctl upgrade apply --contract v1beta1
+Checking cert-manager version...
+Deleting cert-manager Version=&quot;v1.10.1&quot;
+Installing cert-manager Version=&quot;v1.11.0&quot;
+Waiting for cert-manager to be available...
+Performing upgrade...
+Scaling down Provider=&quot;cluster-api&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-system&quot;
+Scaling down Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Scaling down Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-control-plane-system&quot;
+Deleting Provider=&quot;cluster-api&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-system&quot;
+Installing Provider=&quot;cluster-api&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-system&quot;
+Deleting Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Installing Provider=&quot;bootstrap-kubeadm&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-kubeadm-bootstrap-system&quot;
+Deleting Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.3.2&quot; Namespace=&quot;capi-kubeadm-control-plane-system&quot;
+Installing Provider=&quot;control-plane-kubeadm&quot; Version=&quot;v1.4.1&quot; TargetNamespace=&quot;capi-kubeadm-control-plane-system&quot;
+</code></pre>
+<p>Great, cluster-API was upgraded. </p>
+<h1 id="upgrade-caph"><a class="header" href="#upgrade-caph">Upgrade CAPH</a></h1>
+<p>You can find the latest version of CAPH here:</p>
+<p>https://github.com/syself/cluster-api-provider-hetzner/tags</p>
+<pre><code>❯ clusterctl upgrade apply --infrastructure cluster-api-provider-hetzner-system/hetzner:v1.0.0-beta.16
+Checking cert-manager version...
+Cert-manager is already up to date
+Performing upgrade...
+Scaling down Provider=&quot;infrastructure-hetzner&quot; Version=&quot;&quot; Namespace=&quot;cluster-api-provider-hetzner-system&quot;
+Deleting Provider=&quot;infrastructure-hetzner&quot; Version=&quot;&quot; Namespace=&quot;cluster-api-provider-hetzner-system&quot;
+Installing Provider=&quot;infrastructure-hetzner&quot; Version=&quot;v1.0.0-beta.16&quot; TargetNamespace=&quot;cluster-api-provider-hetzner-system&quot;
+</code></pre>
+<h1 id="check-your-cluster"><a class="header" href="#check-your-cluster">Check your cluster</a></h1>
+<p>Check the health of your cluster with your preferred tools. For example <code>kubectl</code>.</p>
+<pre><code>❯ k get pods -A --sort-by=metadata.creationTimestamp
+NAMESPACE                             NAME                                                             READY   STATUS    RESTARTS        AGE
+kube-system                           coredns-565d847f94-ppj8z                                         1/1     Running   685 (33d ago)   79d
+kube-system                           kube-proxy-6p7lt                                                 1/1     Running   2 (33d ago)     79d
+kube-system                           coredns-565d847f94-nrgsk                                         1/1     Running   686 (33d ago)   79d
+kube-system                           kube-apiserver-host-cluster-control-plane-64j47                  1/1     Running   970 (33d ago)   79d
+kube-system                           kube-scheduler-host-cluster-control-plane-64j47                  1/1     Running   484 (33d ago)   79d
+kube-system                           kube-controller-manager-host-cluster-control-plane-64j47         1/1     Running   493 (33d ago)   79d
+kube-system                           etcd-host-cluster-control-plane-64j47                            1/1     Running   813 (33d ago)   79d
+kube-system                           cilium-operator-6f64975cf7-5489z                                 1/1     Running   524 (33d ago)   79d
+kube-system                           cilium-qk7v7                                                     1/1     Running   644 (33d ago)   79d
+kube-system                           cilium-operator-6f64975cf7-z9m72                                 1/1     Running   538 (33d ago)   79d
+kube-system                           ccm-ccm-hcloud-655cf4fdcc-xjszz                                  1/1     Running   3 (33d ago)     79d
+kube-system                           kube-proxy-hbtnt                                                 1/1     Running   1 (35d ago)     79d
+kube-system                           cilium-gtvfw                                                     1/1     Running   643 (35d ago)   79d
+kube-system                           kube-scheduler-host-cluster-control-plane-t97fn                  1/1     Running   492 (33d ago)   79d
+kube-system                           etcd-host-cluster-control-plane-t97fn                            1/1     Running   491 (33d ago)   79d
+kube-system                           kube-apiserver-host-cluster-control-plane-t97fn                  1/1     Running   560 (33d ago)   79d
+kube-system                           kube-controller-manager-host-cluster-control-plane-t97fn         1/1     Running   492 (33d ago)   79d
+kube-system                           hubble-relay-6676b755f6-l7vcd                                    1/1     Running   0               33d
+kube-system                           hubble-ui-55f87db549-q4bxb                                       2/2     Running   0               33d
+default                               netshoot                                                         1/1     Running   2 (21d ago)     21d
+kube-system                           cilium-l8p7s                                                     1/1     Running   0               20d
+kube-system                           kube-proxy-n7pwh                                                 1/1     Running   0               20d
+kube-system                           kube-scheduler-host-cluster-control-plane-2r25q                  1/1     Running   0               20d
+kube-system                           etcd-host-cluster-control-plane-2r25q                            1/1     Running   0               20d
+kube-system                           kube-apiserver-host-cluster-control-plane-2r25q                  1/1     Running   0               20d
+kube-system                           kube-controller-manager-host-cluster-control-plane-2r25q         1/1     Running   0               20d
+cert-manager                          cert-manager-cainjector-ffb4747bb-bt2l7                          1/1     Running   0               10m
+cert-manager                          cert-manager-99bb69456-ntvz6                                     1/1     Running   0               10m
+cert-manager                          cert-manager-webhook-545bd5d7d8-6cxxk                            1/1     Running   0               10m
+capi-system                           capi-controller-manager-746b4f5db4-zzbv9                         1/1     Running   0               9m17s
+capi-kubeadm-bootstrap-system         capi-kubeadm-bootstrap-controller-manager-8654485994-tpvkf       1/1     Running   0               9m14s
+capi-kubeadm-control-plane-system     capi-kubeadm-control-plane-controller-manager-5d9d9494d5-2mqlc   1/1     Running   0               9m11s
+cluster-api-provider-hetzner-system   caph-controller-manager-566f996fbd-jrqc4                         1/1     Running   0               2m30s
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="object-reference"><a class="header" href="#object-reference">Object Reference</a></h2>
+<p>In this object reference, we introduce all objects that are specific for this provider integration. The naming of objects, servers, machines, etc. can be confusing. Without claiming to be consistent throughout these docs, we would like to give an overview of how we name things here.</p>
+<p>First, there are some important counterparts of our objects and CAPI objects. <code>HetznerCluster</code> has CAPI's <code>Cluster</code> object. CAPI's <code>Machine</code> object is the counterpart of both <code>HCloudMachine</code> and <code>HetznerBareMetalMachine</code>. These two are objects of the provider integration that are reconciled by the <code>HCloudMachineController</code> and the <code>HetznerBareMetalMachineController</code> respectively. The <code>HCloudMachineController</code> checks whether there is a server in the HCloud API already and if not, buys/creates one that corresponds to a <code>HCloudMachine</code> object. The <code>HetznerBareMetalMachineController</code> does not buy new bare metal machines, but instead consumes a host of the inventory of <code>HetznerBareMetalHosts</code>, which have a one-to-one relationship to Hetzner dedicated/root/bare metal servers that have been bought manually by the user. </p>
+<p>Therefore, there is an important difference between the <code>HCloudMachine</code> object and a server in the HCloud API. For bare metal, we have even three terms: the <code>HetznerBareMetalMachine</code> object, the <code>HetznerBareMetalHost</code> object, and the actual bare metal server that can be accessed through Hetzner's robot API.</p>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="hetznercluster"><a class="header" href="#hetznercluster">HetznerCluster</a></h2>
+<p>In HetznerCluster you can define everything related to the general components of the cluster as well as those properties, which are valid cluster-wide.</p>
+<p>There are two different modes for the cluster. A pure HCloud cluster and a cluster that uses Hetzner dedicated (bare metal) servers, either as control planes or as workers. The HCloud cluster works with Kubeadm and supports private networks. In a cluster that includes bare metal servers there are no private networks, as this feature has not yet been integrated in cluster-api-provider-hetzner. Apart from SSH, the node image has to support cloud-init, which we use to provision the bare metal machines. In cluster with bare metal servers, you need to use <a href="https://github.com/syself/hetzner-cloud-controller-manager">this CCM</a>, as the official one does not support bare metal.</p>
+<p><a href="reference//docs/topics/managing-ssh-keys.html">Here</a> you can find more information regarding the handling of SSH keys. Some of them are specified in <code>HetznerCluster</code> to have them cluster-wide, others are machine-scoped.</p>
+<h3 id="usage-without-hcloud-load-balancer"><a class="header" href="#usage-without-hcloud-load-balancer">Usage without HCloud Load Balancer</a></h3>
+<p>It is also possible not to use the cloud load balancer from Hetzner. This is useful for setups with only one control plane, or if you have your own cloud load balancer. Using <code>controlPlaneLoadBalancer.enabled=false</code> prevents the creation of a hcloud load balancer. Then you need to configure <code>controlPlaneEndpoint.port=6443</code> &amp; <code>controlPlaneEndpoint.host</code>, which should be a domain that has A records configured pointing to the control plane IP for example. If you are using your own load balancer, you need to point towards it and configure the load balancer to target the control planes of the cluster. </p>
+<h2 id="overview-of-hetznerclusterspec"><a class="header" href="#overview-of-hetznerclusterspec">Overview of HetznerCluster.Spec</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>hcloudNetwork</td><td>object</td><td></td><td>no</td><td>Specifies details about Hetzner cloud private networks</td></tr>
+<tr><td>hcloudNetwork.enabled</td><td>bool</td><td></td><td>yes</td><td>States whether network should be enabled or disabled</td></tr>
+<tr><td>hcloudNetwork.cidrBlock</td><td>string</td><td>&quot;10.0.0.0/16&quot;</td><td>no</td><td>Defines the CIDR block</td></tr>
+<tr><td>hcloudNetwork.subnetCidrBlock</td><td>string</td><td>&quot;10.0.0.0/24&quot;</td><td>no</td><td>Defines the CIDR block of the subnet. Note that one subnet ist required</td></tr>
+<tr><td>hcloudNetwork.networkZone</td><td>string</td><td>&quot;eu-central&quot;</td><td>no</td><td>Defines the network zone. Must be eu-central, us-east or us-west</td></tr>
+<tr><td>controlPlaneRegions</td><td>[]string</td><td>[]string{fsn1}</td><td>no</td><td>This is the base for the failureDomains of the cluster</td></tr>
+<tr><td>sshKeys</td><td>object</td><td></td><td>no</td><td>Cluster-wide SSH keys that serve as default for machines as well</td></tr>
+<tr><td>sshKeys.hcloud</td><td>[]object</td><td></td><td>no</td><td>SSH keys for hcloud</td></tr>
+<tr><td>sshKeys.hcloud.name</td><td>string</td><td></td><td>yes</td><td>Name of SSH key</td></tr>
+<tr><td>sshKeys.hcloud.fingerprint</td><td>string</td><td></td><td>no</td><td>Fingerprint of SSH key - used by the controller</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef</td><td>object</td><td></td><td>no</td><td>Reference to the secret where the SSH key for the rescue system is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.name</td><td>string</td><td></td><td>yes</td><td>Name of the secret</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key</td><td>object</td><td></td><td>yes</td><td>Details about the keys used in the data of the secret</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.name</td><td>string</td><td></td><td>yes</td><td>Name is the key in the secret's data where the SSH key's name is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.publicKey</td><td>string</td><td></td><td>yes</td><td>PublicKey is the key in the secret's data where the SSH key's public key is stored</td></tr>
+<tr><td>sshKeys.robotRescueSecretRef.key.privateKey</td><td>string</td><td></td><td>yes</td><td>PrivateKey is the key in the secret's data where the SSH key's private key is stored</td></tr>
+<tr><td>controlPlaneEndpoint</td><td>object</td><td></td><td>no</td><td>Set by the controller. It is the endpoint to communicate with the control plane</td></tr>
+<tr><td>controlPlaneEndpoint.host</td><td>string</td><td></td><td>yes</td><td>Defines host</td></tr>
+<tr><td>controlPlaneEndpoint.port</td><td>int32</td><td></td><td>yes</td><td>Defines port</td></tr>
+<tr><td>controlPlaneLoadBalancer</td><td>object</td><td></td><td>yes</td><td>Defines specs of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.enabled</td><td>bool</td><td>true</td><td>no</td><td>Specifies if a load balancer should be created</td></tr>
+<tr><td>controlPlaneLoadBalancer.name</td><td>string</td><td></td><td>no</td><td>Name of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.algorithm</td><td>string</td><td>round_robin</td><td>no</td><td>Type of load balancer algorithm. Either round_robin or least_connections</td></tr>
+<tr><td>controlPlaneLoadBalancer.type</td><td>string</td><td>lb11</td><td>no</td><td>Type of load balancer. One of lb11, lb21, lb31</td></tr>
+<tr><td>controlPlaneLoadBalancer.port</td><td>int</td><td>6443</td><td>no</td><td>Load balancer port. Must be in range 1-65535</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices</td><td>[]object</td><td></td><td>no</td><td>Defines extra services of load balancer</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.protocol</td><td>string</td><td></td><td>yes</td><td>Defines protocol. Must be one of https, http, or tcp</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.listenPort</td><td>int</td><td></td><td>yes</td><td>Defines listen port. Must be in range 1-65535</td></tr>
+<tr><td>controlPlaneLoadBalancer.extraServices.destinationPort</td><td>int</td><td></td><td>yes</td><td>Defines destination port. Must be in range 1-65535</td></tr>
+<tr><td>hcloudPlacementGroup</td><td>[]object</td><td></td><td>no</td><td>List of placement groups that should be defined in Hetzner API</td></tr>
+<tr><td>hcloudPlacementGroup.name</td><td>string</td><td></td><td>yes</td><td>Name of placement group</td></tr>
+<tr><td>hcloudPlacementGroup.type</td><td>string</td><td>type</td><td>no</td><td>Type of placement group. Hetzner only supports 'spread'</td></tr>
+<tr><td>hetznerSecret</td><td>object</td><td></td><td>yes</td><td>Reference to secret where Hetzner API credentials are stored</td></tr>
+<tr><td>hetznerSecret.name</td><td>string</td><td></td><td>yes</td><td>Name of secret</td></tr>
+<tr><td>hetznerSecret.key</td><td>object</td><td></td><td>yes</td><td>Reference to the keys that are used in the secret, either <code>hcloudToken</code> or <code>hetznerRobotUser</code> and <code>hetznerRobotPassword</code> need to be specified</td></tr>
+<tr><td>hetznerSecret.key.hcloudToken</td><td>string</td><td></td><td>no</td><td>Name of the key where the token for the Hetzner Cloud API is stored</td></tr>
+<tr><td>hetznerSecret.key.hetznerRobotUser</td><td>string</td><td></td><td>no</td><td>Name of the key where the username for the Hetzner Robot API is stored</td></tr>
+<tr><td>hetznerSecret.key.hetznerRobotPassword</td><td>string</td><td></td><td>no</td><td>Name of the key where the password for the Hetzner Robot API is stored</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="hcloudmachinetemplate"><a class="header" href="#hcloudmachinetemplate">HCloudMachineTemplate</a></h2>
+<p>In <code>HCloudMachineTemplate</code> you can define all important properties for <code>HCloudMachines</code>. <code>HCloudMachines</code> are reconciled by the <code>HCloudMachineController</code>, which creates and deletes servers in Hetzner Cloud. </p>
+<h3 id="overview-of-hcloudmachinetemplatespec"><a class="header" href="#overview-of-hcloudmachinetemplatespec">Overview of HCloudMachineTemplate.Spec</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>template.spec.providerID</td><td>string</td><td></td><td>no</td><td>ProviderID set by controller</td></tr>
+<tr><td>template.spec.type</td><td>string</td><td></td><td>yes</td><td>Desired server type of server in Hetzner's Cloud API. Example: cpx11</td></tr>
+<tr><td>template.spec.imageName</td><td>string</td><td></td><td>yes</td><td>Specifies desired image of server. ImageName can reference an image uploaded to Hetzner API in two ways: either directly as name of an image, or as label of an image (see <a href="https://github.com/syself/cluster-api-provider-hetzner/blob/main/docs/topics/node-image.md">here</a> for more details)</td></tr>
+<tr><td>template.spec.sshKeys</td><td>object</td><td></td><td>no</td><td>SSHKeys that are scoped to this machine</td></tr>
+<tr><td>template.spec.sshKeys.hcloud</td><td>[]object</td><td></td><td>no</td><td>SSH keys for HCloud</td></tr>
+<tr><td>template.spec.sshKeys.hcloud.name</td><td>string</td><td></td><td>yes</td><td>Name of SSH key</td></tr>
+<tr><td>template.spec.sshKeys.hcloud.fingerprint</td><td>string</td><td></td><td>no</td><td>Fingerprint of SSH key - used by the controller</td></tr>
+<tr><td>template.spec.placementGroupName</td><td>string</td><td></td><td>no</td><td>Placement group of the machine in HCloud API, must be referencing an existing placement group</td></tr>
+<tr><td>template.spec.publicNetwork</td><td>object</td><td>{enableIPv4: true, enabledIPv6: true}</td><td>no</td><td>Specs about primary IP address of server. If both IPv4 and IPv6 are disabled, then the private network has to be enabled</td></tr>
+<tr><td>template.spec.publicNetwork.enableIPv4</td><td>bool</td><td>true</td><td>no</td><td>Defines whether server has IPv4 address enabled. As Hetzner load balancers require an IPv4 address, this setting will be ignored and set to true if there is no private net.</td></tr>
+<tr><td>template.spec.publicNetwork.enableIPv6</td><td>bool</td><td>true</td><td>no</td><td>Defines whether server has IPv6 address enabled</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h2 id="hetznerbaremetalhost"><a class="header" href="#hetznerbaremetalhost">HetznerBareMetalHost</a></h2>
+<p>The <code>HetznerBareMetalHost</code> object has a one-to-one relationship to a Hetzner dedicated server. Its ID is specified in the specs. The host object does not belong to a certain <code>HetznerCluster</code>, but can be used by multiple clusters. This is useful, as one host object per server is enough and you can easily see whether a host is used by one of your clusters or not.</p>
+<p>There are not many properties that are relevant to the host object. The WWN of the storage device that should be used for provisioning has to be specified in <code>rootDeviceHints</code> - but not right from the start. This property can be updated after the host starts the provisioning phase and writes all <code>hardwareDetails</code> in the host's status. From there, you can copy the WWN of the storage device that suits your needs and add it to your <code>HetznerBareMetalHost</code> object.</p>
+<h4 id="find-the-wwn"><a class="header" href="#find-the-wwn">Find the WWN</a></h4>
+<p>After you have started the provisioning, run the following on your management cluster to find the <code>hardwareDetails</code> of all of your bare metal hosts.</p>
+<pre><code class="language-shell">kubectl describe hetznerbaremetalhost
+</code></pre>
+<h3 id="lifecycle-of-a-hetznerbaremetalhost"><a class="header" href="#lifecycle-of-a-hetznerbaremetalhost">Lifecycle of a HetznerBareMetalHost</a></h3>
+<p>A host object is available for consumption right after it has been created. When a <code>HetznerBareMetalMachine</code> chooses the host, it updates the host's status. This triggers the provisioning of the host. When the <code>HetznerBareMetalMachine</code> gets deleted, then the host deprovisions and returns to the state where it is available for new consumers.</p>
+<p><code>HetznerBareMetalHosts</code> can only be deleted when they are in the neutral state. In order to delete them, they should be first set to maintenance mode, so that no <code>HetznerBareMetalMachine</code> consumes it.</p>
+<p>Host objects cannot be updated and have to be deleted and re-created if some of the properties change.</p>
+<h4 id="maintenance-mode"><a class="header" href="#maintenance-mode">Maintenance mode</a></h4>
+<p>Maintenance mode means that the host will not be consumed by any <code>HetznerBareMetalMachine</code>. If it is already consumed, then the corresponding <code>HetznerBareMetalMachine</code> will be deleted and the <code>HetznerBareMetalHost</code> deprovisioned.</p>
+<h3 id="overview-of-hetznerbaremetalhostspec"><a class="header" href="#overview-of-hetznerbaremetalhostspec">Overview of HetznerBareMetalHost.Spec</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>serverID</td><td>int</td><td></td><td>yes</td><td>Server ID of the Hetzner dedicated server, you can find it on your Hetzner robot dashboard</td></tr>
+<tr><td>rootDeviceHints</td><td>object</td><td></td><td>no</td><td>It is important to find the correct root device. If none are specified, the host will stop provisioning in between to wait for the details to be specified. HardwareDetails in the host's status can be used to find the correct device. Currently, you can specify one disk or a raid setup</td></tr>
+<tr><td>rootDeviceHints.wwn</td><td>string</td><td></td><td>no</td><td>Unique storage identifier for non raid setups</td></tr>
+<tr><td>rootDeviceHints.raid</td><td>object</td><td></td><td>no</td><td>Used to provide the controller with information on which disks a raid can be established</td></tr>
+<tr><td>rootDeviceHints.raid.wwn</td><td>[]string</td><td></td><td>no</td><td>Defines a list of Unique storage identifiers used for raid setups</td></tr>
+<tr><td>consumerRef</td><td>object</td><td></td><td>no</td><td>Used by the controller and references the bare metal machine that consumes this host</td></tr>
+<tr><td>maintenanceMode</td><td>bool</td><td></td><td>no</td><td>If set to true, the host deprovisions and will not be consumed by any bare metal machine</td></tr>
+<tr><td>description</td><td>string</td><td></td><td>no</td><td>Description can be used to store some valuable information about this host</td></tr>
+<tr><td>status</td><td>object</td><td></td><td>no</td><td>The controller writes this status. As there are some that cannot be regenerated during any reconcilement, the status is in the specs of the object - not the actual status. DO NOT EDIT!!!</td></tr>
+</tbody></table>
+</div>
+<h3 id="example-of-the-hetznerbaremetalhost-object"><a class="header" href="#example-of-the-hetznerbaremetalhost-object">Example of the HetznerBareMetalHost object</a></h3>
+<p>You should create one of these objects for each of your bare metal servers that you want to use for your deployment.</p>
+<pre><code class="language-yaml">apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: HetznerBareMetalHost
+metadata:
+  name: &quot;bm-0&quot; #example
+spec:
+  serverID: 1682566 #change
+  rootDeviceHints:
+    wwn: &quot;eui.0068475201b4egh2&quot; #change
+  maintenanceMode: false
+  description: Test Machine 0 #example
+</code></pre>
+<p>If you want to create an object that will be used in a raid setup, the following can serve as an example.</p>
+<pre><code class="language-yaml">apiVersion: infrastructure.cluster.x-k8s.io/v1beta1
+kind: HetznerBareMetalHost
+metadata:
+  name: &quot;bm-0&quot; #example
+spec:
+  serverID: 1682566 #change
+  rootDeviceHints:
+    raid:
+      wwn:
+        - &quot;eui.0068475201b4egh2&quot; #change
+        - &quot;eui.0068475201b4egh3&quot; #change
+  maintenanceMode: false
+  description: Test Machine 0 #example
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="hetznerbaremetalmachinetemplate"><a class="header" href="#hetznerbaremetalmachinetemplate">HetznerBareMetalMachineTemplate</a></h2>
+<p>In <code>HetznerBareMetalMachineTemplate</code> you can define all important properties for the <code>HetznerBareMetalMachines</code>. <code>HetznerBareMetalMachines</code> are reconciled by the <code>HetznerBareMetalMachineController</code>, which DOES NOT create or delete Hetzner dedicated machines. Instead, it uses the inventory of <code>HetznerBareMetalHosts</code>. These hosts correspond to already existing bare metal servers, which get provisioned when selected by a <code>HetznerBareMetalMachine</code>.</p>
+<h3 id="lifecycle-of-a-hetznerbaremetalmachine"><a class="header" href="#lifecycle-of-a-hetznerbaremetalmachine">Lifecycle of a HetznerBareMetalMachine</a></h3>
+<h4 id="creating-a-hetznerbaremetalmachine"><a class="header" href="#creating-a-hetznerbaremetalmachine">Creating a HetznerBareMetalMachine</a></h4>
+<p>Simply put, the specs of a <code>HetznerBareMetalMachine</code> consist of two parts. First, there is information about how the bare metal server is supposed to be provisioned. Second, there are properties where you can specify which host to select. If these selectors correspond to a host that is not consumed yet, then the <code>HetznerBareMetalMachine</code> transfers important information to the host object. This information is used to provision the host according to what you specified in the specs of <code>HetznerBareMetalMachineTemplate</code>. If a host has provisioned successfully, then the <code>HetznerBareMetalMachine</code> is considered to be ready.</p>
+<h4 id="deleting-of-a-hetznerbaremetalmachine"><a class="header" href="#deleting-of-a-hetznerbaremetalmachine">Deleting of a HetznerBareMetalMachine</a></h4>
+<p>When the <code>HetznerBareMetalMachine</code> object gets deleted, it removes the information from the host that the latter used for provisioning. The host then triggers the deprovisioning. As soon as this has been completed, the <code>HetznerBareMetalMachineController</code> removes the owner and consumer reference of the host and deletes the finalizer of the machine, so that it can be finally deleted.</p>
+<h4 id="updating-a-hetznerbaremetalmachine"><a class="header" href="#updating-a-hetznerbaremetalmachine">Updating a HetznerBareMetalMachine</a></h4>
+<p>Updating a <code>HetznerBareMetalMachineTemplate</code> is not possible. Instead, a new template should be created.</p>
+<h2 id="cloud-init-and-installimage"><a class="header" href="#cloud-init-and-installimage">cloud-init and installimage</a></h2>
+<p>Both in <a href="https://docs.hetzner.com/robot/dedicated-server/operating-systems/installimage/">installimage</a> and cloud-init the ports used for SSH can be changed, e.g. with the following code snippet:</p>
+<pre><code>sed -i -e '/^\(#\|\)Port/s/^.*$/Port 2223/' /etc/ssh/sshd_config
+</code></pre>
+<p>As the controller needs to know this to be able to successfully provision the server, these ports can be specified in <code>SSHSpec</code> of <code>HetznerBareMetalMachineTemplate</code>.</p>
+<p>When the port is changed in cloud-init, then we additionally need to use the following command to make sure that the change of ports takes immediate effect:
+<code>systemctl restart sshd</code></p>
+<h2 id="choosing-the-right-host"><a class="header" href="#choosing-the-right-host">Choosing the right host</a></h2>
+<p>Via MatchLabels you can specify a certain label (key and value) that identifies the host. You get more flexibility with MatchExpressions. This allows decisions like &quot;take any host that has the key &quot;mykey&quot; and let this key have either one of the values &quot;val1&quot;, &quot;val2&quot;, and &quot;val3&quot;.</p>
+<h3 id="overview-of-hetznerbaremetalmachinetemplatespec"><a class="header" href="#overview-of-hetznerbaremetalmachinetemplatespec">Overview of HetznerBareMetalMachineTemplate.Spec</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>template.spec.providerID</td><td>string</td><td></td><td>no</td><td>Provider ID set by controller</td></tr>
+<tr><td>template.spec.installImage</td><td>object</td><td></td><td>yes</td><td>Configuration used in autosetup</td></tr>
+<tr><td>template.spec.installImage.image</td><td>object</td><td></td><td>yes</td><td>Defines image for bm machine. See below for details.</td></tr>
+<tr><td>template.spec.installImage.image.url</td><td>string</td><td></td><td>no</td><td>Remote URL of image. Can be tar, tar.gz, tar.bz, tar.bz2, tar.xz, tgz, tbz, txz</td></tr>
+<tr><td>template.spec.installImage.image.name</td><td>string</td><td></td><td>no</td><td>Name of the image</td></tr>
+<tr><td>template.spec.installImage.image.path</td><td>string</td><td></td><td>no</td><td>Local path of a pre-installed image</td></tr>
+<tr><td>template.spec.installImage.postInstallScript</td><td>string</td><td></td><td>no</td><td>PostInstallScript that is used for commands that will be executed after installing image</td></tr>
+<tr><td>template.spec.installImage.swraid</td><td>int</td><td>0</td><td>no</td><td>Enables or disables raid. Set 1 to enable</td></tr>
+<tr><td>template.spec.installImage.swraidLevel</td><td>int</td><td>1</td><td>no</td><td>Defines the software raid levels. Only relevant if raid is enabled. Pick one of 0,1,5,6,10</td></tr>
+<tr><td>template.spec.installImage.partitions</td><td>[]object</td><td></td><td>yes</td><td>Partitions that should be created in installimage</td></tr>
+<tr><td>template.spec.installImage.partitions.mount</td><td>string</td><td></td><td>yes</td><td>Mount defines the mount path of the filesystem</td></tr>
+<tr><td>template.spec.installImage.partitions.fileSystem</td><td>string</td><td></td><td>yes</td><td>Filesystem that should be used. Can be ext2, ext3, ext4, btrfs, reiserfs, xfs, swap, or the name of the LVM volume group, if the partition is a VG</td></tr>
+<tr><td>template.spec.installImage.partitions.size</td><td>string</td><td></td><td>yes</td><td>Size of the partition. Use 'all' to use all remaining space of the drive. M/G/T can be used as unit specifications for MiB, GiB, TiB</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions</td><td>[]object</td><td></td><td>no</td><td>Defines the logical volume definitions that should be created</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.vg</td><td>string</td><td></td><td>yes</td><td>Defines the vg name</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.name</td><td>string</td><td></td><td>yes</td><td>Defines the volume name</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.mount</td><td>string</td><td></td><td>yes</td><td>Defines the mount path</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.fileSystem</td><td>string</td><td></td><td>yes</td><td>Defines the file system</td></tr>
+<tr><td>template.spec.installImage.logicalVolumeDefinitions.size</td><td>string</td><td></td><td>yes</td><td>Defines size with unit M/G/T or MiB/GiB/TiB</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions</td><td>[]object</td><td></td><td>no</td><td>Defines the btrfs sub-volume definitions that should be created</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.volume</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs volume name</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.subvolume</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs sub-volume name</td></tr>
+<tr><td>template.spec.installImage.btrfsDefinitions.mount</td><td>string</td><td></td><td>yes</td><td>Defines the btrfs mount path</td></tr>
+<tr><td>template.spec.hostSelector</td><td>object</td><td></td><td>no</td><td>Options to select hosts with</td></tr>
+<tr><td>template.spec.hostSelector.matchLabels</td><td>map[string][string]</td><td></td><td>no</td><td>Specify labels as key-value pairs that should be there in host object to select it</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions</td><td>[]object</td><td></td><td>no</td><td>Requirements using Kubernetes MatchExpressions</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.key</td><td>string</td><td></td><td>yes</td><td>Key of label that should be matched in host object</td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.operator</td><td>string</td><td></td><td>yes</td><td><a href="https://pkg.go.dev/k8s.io/apimachinery@v0.23.4/pkg/selection?utm_source=gopls#Operator">Selection operator</a></td></tr>
+<tr><td>template.spec.hostSelector.matchExpressions.values</td><td>[]string</td><td></td><td>yes</td><td>Values whose relation to the label value in the host machine is defined by the selection operator</td></tr>
+<tr><td>template.spec.sshSpec</td><td>object</td><td></td><td>yes</td><td>SSH specs</td></tr>
+<tr><td>template.spec.sshSpec.secretRef</td><td>object</td><td></td><td>yes</td><td>Reference to the secret where SSH key is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.name</td><td>string</td><td></td><td>yes</td><td>Name of the secret</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key</td><td>object</td><td></td><td>yes</td><td>Details about the keys used in the data of the secret</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.name</td><td>string</td><td></td><td>yes</td><td>Name is the key in the secret's data where the SSH key's name is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.publicKey</td><td>string</td><td></td><td>yes</td><td>PublicKey is the key in the secret's data where the SSH key's public key is stored</td></tr>
+<tr><td>template.spec.sshSpec.secretRef.key.privateKey</td><td>string</td><td></td><td>yes</td><td>PrivateKey is the key in the secret's data where the SSH key's private key is stored</td></tr>
+<tr><td>template.spec.sshSpec.portAfterInstallImage</td><td>int</td><td>22</td><td>no</td><td>PortAfterInstallImage specifies the port that can be used to reach the server via SSH after install image completed successfully</td></tr>
+<tr><td>template.spec.sshSpec.portAfterCloudInit</td><td>int</td><td>22 (install image port)</td><td>no</td><td>PortAfterCloudInit specifies the port that can be used to reach the server via SSH after cloud init completed successfully</td></tr>
+</tbody></table>
+</div>
+<h3 id="installimageimage"><a class="header" href="#installimageimage">installImage.image</a></h3>
+<p>You must specify either name and url, or a local path.</p>
+<p>Example of an image provided by Hetzner via NFS:</p>
+<pre><code>image:
+  path: /root/.oldroot/nfs//images/Ubuntu-2204-jammy-amd64-base.tar.gz
+</code></pre>
+<p>Example of an image provided by you via https. The script installimage of Hetzner parses the name to detect the version. It is
+recommended to follow their naming pattern.</p>
+<pre><code>image:
+  name: Ubuntu-2204-jammy-amd64-custom
+  url: https://user:pwd@example.com/images/Ubuntu-2204-jammy-amd64-custom.tar.gz
+
+</code></pre>
+<p>Example of pulling an image from an oci-registry:</p>
+<pre><code>image:
+  name: Ubuntu-2204-jammy-amd64-custom
+  url: oci://ghcr.io/myorg/images/Ubuntu-2204-jammy-amd64-custom:1.0.0-beta.2
+</code></pre>
+<p>If you need credentials to pull the image, then provide the environment variable <code>OCI_REGISTRY_AUTH_TOKEN</code> to the controller.</p>
+<p>You can provide the variable via a secret of the deployment <code>caph-controller-manager</code>:</p>
+<pre><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  # ... 
+spec:
+  # ... 
+  template:
+    spec:
+      containers:
+      - command:
+        - /manager
+        image: ghcr.io/syself/caph:vXXX
+        env:
+          - name: OCI_REGISTRY_AUTH_TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: my-oci-registry-secret    # The name of the secret
+                key: OCI_REGISTRY_AUTH_TOKEN    # The key in the secret. Format: &quot;user:pwd&quot; or just &quot;token&quot;
+      # ... other container specs
+</code></pre>
+<p>You can push an image to an oci-registry with a tool like <a href="https://oras.land">oras</a>:</p>
+<pre><code>oras push ghcr.io/myorg/images/Ubuntu-2204-jammy-amd64-custom:1.0.0-beta.2 \
+    --artifact-type application/vnd.myorg.machine-image.v1 Ubuntu-2204-jammy-amd64-custom.tar.gz
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="hetznerbaremetalremediationtemplate"><a class="header" href="#hetznerbaremetalremediationtemplate">HetznerBareMetalRemediationTemplate</a></h2>
+<p>In <code>HetznerBareMetalRemediationTemplate</code> you can define all important properties for <code>HetznerBareMetalRemediations</code>. With this remediation, you can define a custom method for the manner of how Machine Health Checks treat the unhealthy objects - <code>HetznerBareMetalMachines</code> in this case. For more information about how to use remdiations, see <a href="reference//docs/topics/advanced-caph.html">Advanced CAPH</a>. <code>HetznerBareMetalRemediations</code> are reconciled by the <code>HetznerBareMetalRemediationController</code>, which reconciles the remediatons and triggers the requested type of remediation on the relevant <code>HetznerBareMetalMachine</code>.</p>
+<h3 id="overview-of-hetznerbaremetalremediationtemplatespec"><a class="header" href="#overview-of-hetznerbaremetalremediationtemplatespec">Overview of HetznerBareMetalRemediationTemplate.Spec</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>template.spec.strategy</td><td>object</td><td></td><td>yes</td><td>Remediation strategy to be applied</td></tr>
+<tr><td>template.spec.strategy.type</td><td>string</td><td>Reboot</td><td>no</td><td>Type of the remediation strategy. At the moment, only &quot;Reboot&quot; is supported</td></tr>
+<tr><td>template.spec.strategy.retryLimit</td><td>int</td><td>0</td><td>no</td><td>Set maximum of remediation retries. Zero retries if not set.</td></tr>
+<tr><td>template.spec.strategy.timeout</td><td>string</td><td></td><td>yes</td><td>Timeout of one remediation try. Should be of the form &quot;10m&quot;, or &quot;40s&quot;</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="developing-cluster-api-provider-hetzner"><a class="header" href="#developing-cluster-api-provider-hetzner">Developing Cluster API Provider Hetzner</a></h1>
+<p>Developing our provider is quite easy. First, you need to install some base requirements. Second, you need to follow the quickstart documents to set up everything related to Hetzner. Third, you need to configure your tilt set-up. After having done those three steps, you can start developing with the local Kind cluster and the Tilt UI to create one of the different workload clusters that are already pre-configured. </p>
+<h2 id="install-base-requirements"><a class="header" href="#install-base-requirements">Install Base requirements</a></h2>
+<p>In order to develop with Tilt, there are a few requirements. You can use the following command to check whether the versions of the tools are up-to-date and to install ones that are missing (for both Mac &amp; Linux): <code>make install-dev-prerequisites</code></p>
+<p>This ensures the following:</p>
+<ul>
+<li>clusterctl</li>
+<li>ctlptl (required)</li>
+<li>go (required)</li>
+<li>helm (required)</li>
+<li>helmfile </li>
+<li>kind (required)</li>
+<li>kubectl (required)</li>
+<li>packer</li>
+<li>tilt (required)</li>
+<li>hcloud</li>
+</ul>
+<p>Some of them like helmfile or packer are not needed for developing the controller, but very helpful if you are developing images or stuff for production use.</p>
+<h2 id="preparing-hetzner-project"><a class="header" href="#preparing-hetzner-project">Preparing Hetzner project</a></h2>
+<p>For more information, please see <a href="developers//docs/topics/preparation.html">here</a>.</p>
+<h2 id="setting-tilt-up"><a class="header" href="#setting-tilt-up">Setting Tilt up</a></h2>
+<p>You need to create a <code>tilt-settings.json</code> file and specify the values you need. Here is an example:</p>
+<pre><code class="language-json">{
+  &quot;kustomize_substitutions&quot;: {
+      &quot;HCLOUD_TOKEN&quot;: &quot;&lt;hcloud-token&gt;&quot;,
+      &quot;HCLOUD_SSH_KEY&quot;: &quot;test&quot;,
+      &quot;HCLOUD_REGION&quot;: &quot;fsn1&quot;,
+      &quot;CONTROL_PLANE_MACHINE_COUNT&quot;: &quot;3&quot;,
+      &quot;WORKER_MACHINE_COUNT&quot;: &quot;3&quot;,
+      &quot;KUBERNETES_VERSION&quot;: &quot;v1.28.4&quot;,
+      &quot;HCLOUD_IMAGE_NAME&quot;: &quot;1.28.4-ubuntu-22-04-containerd&quot;,
+      &quot;HCLOUD_CONTROL_PLANE_MACHINE_TYPE&quot;: &quot;cpx31&quot;,
+      &quot;HCLOUD_WORKER_MACHINE_TYPE&quot;: &quot;cpx31&quot;,
+      &quot;CLUSTER_NAME&quot;: &quot;testing&quot;,
+      &quot;HETZNER_SSH_PUB_PATH&quot;: &quot;&lt;path-to-public-ssh-key&gt;&quot;,
+      &quot;HETZNER_SSH_PRIV_PATH&quot;: &quot;&lt;path-to-private-ssh-key&gt;&quot;,
+      &quot;HETZNER_ROBOT_USER&quot;: &quot;&lt;robot-user&gt;&quot;,
+      &quot;HETZNER_ROBOT_PASSWORD&quot;: &quot;&lt;robot-password&gt;&quot;
+  },
+}
+</code></pre>
+<p>The complete reference can be found <a href="developers//docs/developers/tilt.html">here</a>.</p>
+<h2 id="developing-with-tilt"><a class="header" href="#developing-with-tilt">Developing with Tilt</a></h2>
+<p align="center">
+<img alt="tilt" src="developers/../pics/tilt.png" width=800px/>
+</p> 
+<p>Provider Integration development requires a lot of iteration, and the “build, tag, push, update deployment” workflow can be very tedious. Tilt makes this process much simpler by watching for updates and automatically building and deploying them. To build a kind cluster and to start Tilt, run:</p>
+<pre><code class="language-shell">make tilt-up
+</code></pre>
+<blockquote>
+<p>To access the Tilt UI, please go to: <code>http://localhost:10350</code></p>
+</blockquote>
+<p>Once your kind management cluster is up and running, you can deploy a workload cluster. This could be done through the Tilt UI by pressing one of the buttons in the top right corner, e.g., <strong>&quot;Create Workload Cluster - without Packer&quot;</strong>. This triggers the <code>make create-workload-cluster</code> command, which uses the environment variables (we defined in the tilt-settings.json) and the cluster-template. Additionally, it installs cilium as CNI.</p>
+<p>If you update the API in some way, you need to run <code>make generate</code> to generate everything related to kubebuilder and the CRDs.</p>
+<p>To tear down the workload cluster, press the <strong>&quot;Delete Workload Cluster&quot;</strong> button. After a few minutes, the resources should be deleted. </p>
+<p>To tear down the kind cluster, use:</p>
+<pre><code class="language-shell">$ make delete-mgt-cluster
+</code></pre>
+<p>To delete the registry, use: <code>make delete-registry</code> or <code>make delete-mgt-cluster-registry</code>.</p>
+<p>If you have any trouble finding the right command, you can run the <code>make help</code> command to get a list of all available make targets. </p>
+<h2 id="submitting-prs-and-testing"><a class="header" href="#submitting-prs-and-testing">Submitting PRs and testing</a></h2>
+<p>Pull requests and issues are highly encouraged! For more information, please have a look at the <a href="developers/../../CONTRIBUTING.html">Contribution Guidelines</a></p>
+<p>There are two important commands that you should make use of before creating the PR.</p>
+<p>With <code>make verify</code>, you can run all linting checks and others. Make sure that all of these checks pass - otherwise, the PR cannot be merged. Note that you need to commit all changes for the last checks to pass. </p>
+<p>With <code>make test</code>, all unit tests are triggered. If they fail out of nowhere, then please re-run them. They are not 100% stable and sometimes there are tests failing due to something related to Kubernetes' <code>envtest</code>.</p>
+<p>With <code>make generate</code>, new CRDs are generated. This is necessary if you change the API.</p>
+<h3 id="running-local-e2e-test"><a class="header" href="#running-local-e2e-test">Running local e2e test</a></h3>
+<p>If you are interested in running the E2E tests locally, then you can use the following commands:</p>
+<pre><code>export HCLOUD_TOKEN=&lt;your-hcloud-token&gt;
+export CAPH_LATEST_VERSION=&lt;latest-version&gt;
+export HETZNER_ROBOT_USER=&lt;your robot user&gt;
+export HETZNER_ROBOT_PASSWORD=&lt;your robot password&gt;
+export HETZNER_SSH_PUB=&lt;your-ssh-pub-key&gt;
+export HETZNER_SSH_PRIV=&lt;your-ssh-private-key&gt;
+make test-e2e
+</code></pre>
+<p>For the SSH public and private keys, you should use the following command to encode the keys. Note that the E2E test will not work if the ssh key is in any other format!</p>
+<pre><code>export HETZNER_SSH_PRIV=$(cat ~/.ssh/cluster | base64 -w0)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-of-tilt"><a class="header" href="#reference-of-tilt">Reference of Tilt</a></h1>
+<pre><code>&quot;allowed_contexts&quot;: [
+    &quot;kind-caph&quot;,
+],
+&quot;deploy_cert_manager&quot;: True,
+&quot;deploy_observability&quot;: False,
+&quot;preload_images_for_kind&quot;: True,
+&quot;kind_cluster_name&quot;: &quot;caph&quot;,
+&quot;capi_version&quot;: &quot;v1.6.3&quot;,
+&quot;cabpt_version&quot;: &quot;v0.5.5&quot;,
+&quot;cacppt_version&quot;: &quot;v0.4.10&quot;,
+&quot;cert_manager_version&quot;: &quot;v1.11.0&quot;,
+&quot;kustomize_substitutions&quot;: {
+    &quot;HCLOUD_REGION&quot;: &quot;fsn1&quot;,
+    &quot;CONTROL_PLANE_MACHINE_COUNT&quot;: &quot;3&quot;,
+    &quot;WORKER_MACHINE_COUNT&quot;: &quot;3&quot;,
+    &quot;KUBERNETES_VERSION&quot;: &quot;v1.28.4&quot;,
+    &quot;HCLOUD_IMAGE_NAME&quot;: &quot;test-image&quot;,
+    &quot;HCLOUD_CONTROL_PLANE_MACHINE_TYPE&quot;: &quot;cpx31&quot;,
+    &quot;HCLOUD_WORKER_MACHINE_TYPE&quot;: &quot;cpx31&quot;,
+    &quot;CLUSTER_NAME&quot;: &quot;test&quot;,
+    &quot;HETZNER_SSH_PUB_PATH&quot;: &quot;~/.ssh/test&quot;,
+    &quot;HETZNER_SSH_PRIV_PATH&quot;: &quot;~/.ssh/test&quot;,
+    &quot;HETZNER_ROBOT_USER&quot;: &quot;test&quot;,
+    &quot;HETZNER_ROBOT_PASSWORD&quot;: &quot;pw&quot;
+},
+</code></pre>
+<div class="table-wrapper"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Required</th><th>Description</th></tr></thead><tbody>
+<tr><td>allowed_contexts</td><td>[]string</td><td>[&quot;kind-caph&quot;]</td><td>no</td><td>A list of kubeconfig contexts Tilt is allowed to use. See the Tilt documentation on</td></tr>
+<tr><td><a href="https://docs.tilt.dev/api.html#api.allow_k8s_contexts">allow_k8s_contexts</a> for more details</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>deploy_cert_manager</td><td>bool</td><td>true</td><td>no</td><td>If true, deploys cert-manager into the cluster for use for webhook registration</td></tr>
+<tr><td>deploy_observability</td><td>bool</td><td>false</td><td>no</td><td>If true, installs grafana, loki and promtail in the dev cluster. Grafana UI will be accessible via a link in the tilt console. Important! This feature requires the <code>helm</code> command to be available in the user's path</td></tr>
+<tr><td>preload_images_for_kind</td><td>bool</td><td>true</td><td>no</td><td>If set to true, uses <code>kind load docker-image</code> to preload images into a kind cluster</td></tr>
+<tr><td>kind_cluster_name</td><td>[]object</td><td>&quot;caph&quot;</td><td>no</td><td>The name of the kind cluster to use when preloading images</td></tr>
+<tr><td>capi_version</td><td>string</td><td>&quot;v1.6.3&quot;</td><td>no</td><td>Version of CAPI</td></tr>
+<tr><td>cert_manager_version</td><td>string</td><td>&quot;v1.11.0&quot;</td><td>no</td><td>Version of cert manager</td></tr>
+<tr><td>kustomize_substitutions</td><td>map[string]string</td><td>{</td><td></td><td></td></tr>
+<tr><td>&quot;HCLOUD_REGION&quot;: &quot;fsn1&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;CONTROL_PLANE_MACHINE_COUNT&quot;: &quot;3&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;WORKER_MACHINE_COUNT&quot;: &quot;3&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;KUBERNETES_VERSION&quot;: &quot;v1.28.4&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HCLOUD_IMAGE_NAME&quot;: &quot;test-image&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HCLOUD_CONTROL_PLANE_MACHINE_TYPE&quot;: &quot;cpx31&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HCLOUD_WORKER_MACHINE_TYPE&quot;: &quot;cpx31&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;CLUSTER_NAME&quot;: &quot;test&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HETZNER_SSH_PUB_PATH&quot;: &quot;~/.ssh/test&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HETZNER_SSH_PRIV_PATH&quot;: &quot;~/.ssh/test&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HETZNER_ROBOT_USER&quot;: &quot;test&quot;,</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>&quot;HETZNER_ROBOT_PASSWORD&quot;: &quot;pw&quot;</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>},</td><td>no</td><td>An optional map of substitutions for <code>${}</code>-style placeholders in the provider's yaml</td><td></td><td></td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="release-process"><a class="header" href="#release-process">Release Process</a></h1>
+<h2 id="create-a-tag"><a class="header" href="#create-a-tag">Create a tag</a></h2>
+<ol>
+<li>Create an annotated tag
+<ul>
+<li><code>git switch main</code></li>
+<li><code>git pull</code></li>
+<li>Have a look at the current (old) version: <a href="https://github.com/syself/cluster-api-provider-hetzner/releases">Github Releases</a> </li>
+<li><code>export RELEASE_TAG=&lt;the tag of the release to be cut&gt;</code> (eg. <code>export RELEASE_TAG=v1.0.1</code>)</li>
+<li><code>git tag -a ${RELEASE_TAG} -m ${RELEASE_TAG}</code></li>
+</ul>
+</li>
+<li>Push the tag to the GitHub repository.
+<blockquote>
+<p>NOTE: <code>origin</code> should be the name of the remote pointing to <code>github.com/syself/cluster-api-provider-hetzner</code></p>
+</blockquote>
+<ul>
+<li><code>git push origin ${RELEASE_TAG}</code></li>
+<li>This will automatically trigger a <a href="https://github.com/syself/cluster-api-provider-hetzner/actions">Github Action</a> to create a draft release (this will take roughly 6 minutes).</li>
+</ul>
+</li>
+</ol>
+<h2 id="release-in-github"><a class="header" href="#release-in-github">Release in GitHub</a></h2>
+<ol>
+<li>Review the draft release on GitHub. Pay close attention to the <code>## :question: Sort these by hand</code> section, as it contains items that need to be manually sorted.</li>
+<li>If it is pre-release, activate the corresponding check at the bottom of the page. And add <code>:rotating_light: This is a RELEASE CANDIDATE. If you find any bugs, file an [issue](https://github.com/syself/cluster-api-provider-hetzner/issues/new).</code> at the top of the release notes.</li>
+<li>Before publishing you can check the <a href="https://github.com/syself/cluster-api-provider-hetzner/pkgs/container/caph">Recent tagged image versions</a>: &quot;latest&quot; should be some seconds old and the new version number.</li>
+<li>Publish the release</li>
+<li>Write to the corresponding channels: &quot;FYI: .... was released, (add hyperlink). A big &quot;thank you&quot; to all contributors!&quot;</li>
+</ol>
+<p>Done 🥳</p>
+<h2 id="manual-creation-of-images"><a class="header" href="#manual-creation-of-images">Manual creation of images</a></h2>
+<p>This is only needed if you want to manually release images.</p>
+<ol>
+<li>Login to ghcr</li>
+<li>Do:
+<ul>
+<li><code>make release-image</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="versioning"><a class="header" href="#versioning">Versioning</a></h3>
+<p>See the <a href="developers/./../../CONTRIBUTING.html#versioning">versioning documentation</a> for more information.</p>
+<h3 id="permissions"><a class="header" href="#permissions">Permissions</a></h3>
+<p>Releasing requires a particular set of permissions.</p>
+<ul>
+<li>Tag push access to the GitHub repository</li>
+<li>GitHub Release creation access</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
